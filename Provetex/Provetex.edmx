@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProvetexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="_id_item" />
+          </Key>
+          <Property Name="_id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_name_item" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="_id_purchase" />
+          </Key>
+          <Property Name="_id_purchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_supplier" Type="int" Nullable="false" />
+          <Property Name="_item" Type="int" Nullable="false" />
+          <Property Name="_quantity" Type="int" Nullable="false" />
+          <Property Name="_paid" Type="money" Nullable="false" />
+          <Property Name="_rest" Type="money" />
+          <Property Name="created_at" Type="date" />
+          <Property Name="update_at" Type="date" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="_id_supplier" />
+          </Key>
+          <Property Name="_id_supplier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_name_supplier" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="_phone_supplier" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="_adress_supplier" Type="varchar" MaxLength="50" />
+          <Property Name="_email_supplier" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="date" />
+          <Property Name="update_at" Type="date" />
+        </EntityType>
+        <EntityType Name="suppliers_items">
+          <Key>
+            <PropertyRef Name="_supplier" />
+            <PropertyRef Name="_item" />
+          </Key>
+          <Property Name="_supplier" Type="int" Nullable="false" />
+          <Property Name="_item" Type="int" Nullable="false" />
+          <Property Name="_price" Type="money" Nullable="false" />
+          <Property Name="created_at" Type="date" />
+          <Property Name="update_at" Type="date" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="_id_user" />
+          </Key>
+          <Property Name="_id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_nom" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="_user_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="_password" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="_question" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="_repence" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="_favorite_date" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__purchase___item__440B1D61">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="_id_item" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase___suppl__4316F928">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="_id_supplier" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="_supplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__suppliers___item__2D27B809">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="_id_item" />
+            </Principal>
+            <Dependent Role="suppliers_items">
+              <PropertyRef Name="_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__suppliers___supp__2C3393D0">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="_id_supplier" />
+            </Principal>
+            <Dependent Role="suppliers_items">
+              <PropertyRef Name="_supplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProvetexModelStoreContainer">
+          <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchase" EntityType="Self.purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suppliers_items" EntityType="Self.suppliers_items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__purchase___item__440B1D61" Association="Self.FK__purchase___item__440B1D61">
+            <End Role="item" EntitySet="item" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase___suppl__4316F928" Association="Self.FK__purchase___suppl__4316F928">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__suppliers___item__2D27B809" Association="Self.FK__suppliers___item__2D27B809">
+            <End Role="item" EntitySet="item" />
+            <End Role="suppliers_items" EntitySet="suppliers_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__suppliers___supp__2C3393D0" Association="Self.FK__suppliers___supp__2C3393D0">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="suppliers_items" EntitySet="suppliers_items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProvetexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="C_id_item" />
+          </Key>
+          <Property Name="C_id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_name_item" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase___item__440B1D61" FromRole="item" ToRole="purchase" />
+          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__suppliers___item__2D27B809" FromRole="item" ToRole="suppliers_items" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="C_id_purchase" />
+          </Key>
+          <Property Name="C_id_purchase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_supplier" Type="Int32" Nullable="false" />
+          <Property Name="C_item" Type="Int32" Nullable="false" />
+          <Property Name="C_quantity" Type="Int32" Nullable="false" />
+          <Property Name="C_paid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="C_rest" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="created_at" Type="DateTime" Precision="0" />
+          <Property Name="update_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="item" Relationship="Self.FK__purchase___item__440B1D61" FromRole="purchase" ToRole="item" />
+          <NavigationProperty Name="supplier" Relationship="Self.FK__purchase___suppl__4316F928" FromRole="purchase" ToRole="supplier" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="C_id_supplier" />
+          </Key>
+          <Property Name="C_id_supplier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_name_supplier" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_phone_supplier" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_adress_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_email_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="0" />
+          <Property Name="update_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase___suppl__4316F928" FromRole="supplier" ToRole="purchase" />
+          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__suppliers___supp__2C3393D0" FromRole="supplier" ToRole="suppliers_items" />
+        </EntityType>
+        <EntityType Name="suppliers_items">
+          <Key>
+            <PropertyRef Name="C_supplier" />
+            <PropertyRef Name="C_item" />
+          </Key>
+          <Property Name="C_supplier" Type="Int32" Nullable="false" />
+          <Property Name="C_item" Type="Int32" Nullable="false" />
+          <Property Name="C_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="0" />
+          <Property Name="update_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="item" Relationship="Self.FK__suppliers___item__2D27B809" FromRole="suppliers_items" ToRole="item" />
+          <NavigationProperty Name="supplier" Relationship="Self.FK__suppliers___supp__2C3393D0" FromRole="suppliers_items" ToRole="supplier" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="C_id_user" />
+          </Key>
+          <Property Name="C_id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_user_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_question" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_repence" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_favorite_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <Association Name="FK__purchase___item__440B1D61">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="C_id_item" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="C_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__suppliers___item__2D27B809">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="C_id_item" />
+            </Principal>
+            <Dependent Role="suppliers_items">
+              <PropertyRef Name="C_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase___suppl__4316F928">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="C_id_supplier" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="C_supplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__suppliers___supp__2C3393D0">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="C_id_supplier" />
+            </Principal>
+            <Dependent Role="suppliers_items">
+              <PropertyRef Name="C_supplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProvetexEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="purchases" EntityType="Self.purchase" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="suppliers_items" EntityType="Self.suppliers_items" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__purchase___item__440B1D61" Association="Self.FK__purchase___item__440B1D61">
+            <End Role="item" EntitySet="items" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__suppliers___item__2D27B809" Association="Self.FK__suppliers___item__2D27B809">
+            <End Role="item" EntitySet="items" />
+            <End Role="suppliers_items" EntitySet="suppliers_items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase___suppl__4316F928" Association="Self.FK__purchase___suppl__4316F928">
+            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__suppliers___supp__2C3393D0" Association="Self.FK__suppliers___supp__2C3393D0">
+            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="suppliers_items" EntitySet="suppliers_items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProvetexModelStoreContainer" CdmEntityContainer="ProvetexEntities">
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="ProvetexModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="C_id_item" ColumnName="_id_item" />
+                <ScalarProperty Name="C_name_item" ColumnName="_name_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchases">
+            <EntityTypeMapping TypeName="ProvetexModel.purchase">
+              <MappingFragment StoreEntitySet="purchase">
+                <ScalarProperty Name="C_id_purchase" ColumnName="_id_purchase" />
+                <ScalarProperty Name="C_supplier" ColumnName="_supplier" />
+                <ScalarProperty Name="C_item" ColumnName="_item" />
+                <ScalarProperty Name="C_quantity" ColumnName="_quantity" />
+                <ScalarProperty Name="C_paid" ColumnName="_paid" />
+                <ScalarProperty Name="C_rest" ColumnName="_rest" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="ProvetexModel.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="C_id_supplier" ColumnName="_id_supplier" />
+                <ScalarProperty Name="C_name_supplier" ColumnName="_name_supplier" />
+                <ScalarProperty Name="C_phone_supplier" ColumnName="_phone_supplier" />
+                <ScalarProperty Name="C_adress_supplier" ColumnName="_adress_supplier" />
+                <ScalarProperty Name="C_email_supplier" ColumnName="_email_supplier" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers_items">
+            <EntityTypeMapping TypeName="ProvetexModel.suppliers_items">
+              <MappingFragment StoreEntitySet="suppliers_items">
+                <ScalarProperty Name="C_supplier" ColumnName="_supplier" />
+                <ScalarProperty Name="C_item" ColumnName="_item" />
+                <ScalarProperty Name="C_price" ColumnName="_price" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ProvetexModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="C_id_user" ColumnName="_id_user" />
+                <ScalarProperty Name="C_nom" ColumnName="_nom" />
+                <ScalarProperty Name="C_user_name" ColumnName="_user_name" />
+                <ScalarProperty Name="C_password" ColumnName="_password" />
+                <ScalarProperty Name="C_question" ColumnName="_question" />
+                <ScalarProperty Name="C_repence" ColumnName="_repence" />
+                <ScalarProperty Name="C_favorite_date" ColumnName="_favorite_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
