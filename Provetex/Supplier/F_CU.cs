@@ -35,6 +35,7 @@ namespace Provetex.Supplier
                 Program.provetex.suppliers.Add(supplier);
                 Program.provetex.SaveChanges();
                 MessageBox.Show("added seccese");
+
             }
             catch (Exception ex)
             {
@@ -44,7 +45,15 @@ namespace Provetex.Supplier
         }
         private void Update()
         {
-            //update
+            var supplier = Program.provetex.suppliers.Find(Program.id_supplier);
+            supplier.C_name_supplier = Textbox_name.Text;
+            supplier.C_adress_supplier = Textbox_adrs.Text;
+            supplier.C_email_supplier = Textbox_email.Text;
+            supplier.C_phone_supplier = Textbox_phone.Text;
+            supplier.update_at = DateTime.Today;
+            Program.provetex.SaveChanges();
+            Program.updateSupplier = false;
+            this.Close();
         }
 
         //
@@ -53,14 +62,20 @@ namespace Provetex.Supplier
             if (Program.updateSupplier == false)
                 Button_save.ButtonText = "save";
             else
-                Button_save.ButtonText = "uppdate";
-
+            {
+                Button_save.ButtonText = "update";
+                var supplier = Program.provetex.suppliers.Find(Program.id_supplier);
+                Textbox_name.Text = supplier.C_name_supplier;
+                Textbox_adrs.Text = supplier.C_adress_supplier;
+                Textbox_phone.Text = supplier.C_phone_supplier;
+                Textbox_email.Text = supplier.C_email_supplier;
+                
+            }
         }
 
         private void Button_back_Click(object sender, EventArgs e)
         {
-            Dashboard form = new Dashboard();
-            (this.Owner as Dashboard).Enabled = true;
+            Program.updateSupplier = false;
             this.Close();
         }
 
@@ -70,6 +85,7 @@ namespace Provetex.Supplier
                 Register();
             else
                 Update();
+
         }
 
     }

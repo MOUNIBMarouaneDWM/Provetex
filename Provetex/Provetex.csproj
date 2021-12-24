@@ -99,6 +99,18 @@
     <Compile Include="item.cs">
       <DependentUpon>Provetex.tt</DependentUpon>
     </Compile>
+    <Compile Include="Item\F_CU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item\F_CU.Designer.cs">
+      <DependentUpon>F_CU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item\F_RD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item\F_RD.Designer.cs">
+      <DependentUpon>F_RD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provetex.Context.cs">
@@ -119,6 +131,18 @@
     <Compile Include="purchase.cs">
       <DependentUpon>Provetex.tt</DependentUpon>
     </Compile>
+    <Compile Include="Purchase\F_CU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\F_CU.Designer.cs">
+      <DependentUpon>F_CU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase\F_RD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\F_RD.Designer.cs">
+      <DependentUpon>F_RD.cs</DependentUpon>
+    </Compile>
     <Compile Include="supplier.cs">
       <DependentUpon>Provetex.tt</DependentUpon>
     </Compile>
@@ -131,11 +155,20 @@
     <Compile Include="Supplier\F_CU.Designer.cs">
       <DependentUpon>F_CU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supplier\F_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier\F_Details.Designer.cs">
+      <DependentUpon>F_Details.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supplier\F_RD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Supplier\F_RD.Designer.cs">
       <DependentUpon>F_RD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Provetex.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Provetex.tt</DependentUpon>
@@ -155,6 +188,12 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Item\F_CU.resx">
+      <DependentUpon>F_CU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item\F_RD.resx">
+      <DependentUpon>F_RD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -166,6 +205,9 @@
     </Compile>
     <EmbeddedResource Include="Supplier\F_CU.resx">
       <DependentUpon>F_CU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supplier\F_Details.resx">
+      <DependentUpon>F_Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Supplier\F_RD.resx">
       <DependentUpon>F_RD.cs</DependentUpon>
@@ -192,14 +234,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Item\" />
-    <Folder Include="Purchase\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Provetex.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Provetex.Context.cs</LastGenOutput>
       <DependentUpon>Provetex.edmx</DependentUpon>
+      <LastGenOutput>Provetex.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Provetex.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -29,6 +29,7 @@ namespace Provetex
         public virtual DbSet<purchase> purchases { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }
         public virtual DbSet<suppliers_items> suppliers_items { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

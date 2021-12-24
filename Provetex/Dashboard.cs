@@ -97,20 +97,32 @@ namespace Provetex
 
         private void button_add_fourni_Click(object sender, EventArgs e)
         {
-            Form form = new Supplier.F_CU();
-            form.Owner=this;
-            form.Show();
-            this.Enabled = false;
-            
+            if (Application.OpenForms.OfType<Supplier.F_CU>().Any())
+                MessageBox.Show("Form is opened");
+            else
+            {
+                Form form = new Supplier.F_CU();
+                form.TopMost = true;
+                form.Show();
+            }
         }
 
         private void button_list_fourni_Click(object sender, EventArgs e)
         {
             Form form = new Supplier.F_RD();
-
+            form.Owner = this;
             Panelaffiche(form);
+        }
 
+        private void icon_close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
+        private void button_details_fournis_Click(object sender, EventArgs e)
+        {
+            Form form = new Supplier.F_Details();
+            Panelaffiche(form);
         }
     }
 }

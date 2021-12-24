@@ -17,7 +17,6 @@ namespace Provetex
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public supplier()
         {
-            this.purchases = new HashSet<purchase>();
             this.suppliers_items = new HashSet<suppliers_items>();
         }
     
@@ -29,8 +28,6 @@ namespace Provetex
         public Nullable<System.DateTime> created_at { get; set; }
         public Nullable<System.DateTime> update_at { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<purchase> purchases { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<suppliers_items> suppliers_items { get; set; }
     }

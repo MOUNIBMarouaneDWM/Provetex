@@ -12,16 +12,12 @@ namespace Provetex
     using System;
     using System.Collections.Generic;
     
-    public partial class purchase
+    public partial class sysdiagram
     {
-        public int C_id_purchase { get; set; }
-        public int C_suppliers_items { get; set; }
-        public int C_quantity { get; set; }
-        public decimal C_paid { get; set; }
-        public Nullable<decimal> C_rest { get; set; }
-        public Nullable<System.DateTime> created_at { get; set; }
-        public Nullable<System.DateTime> update_at { get; set; }
-    
-        public virtual suppliers_items suppliers_items { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
