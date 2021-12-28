@@ -202,6 +202,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Supplier\F_CU.resx">
       <DependentUpon>F_CU.cs</DependentUpon>
@@ -244,6 +245,7 @@
       <DependentUpon>Provetex.edmx</DependentUpon>
       <LastGenOutput>Provetex.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8_refresh_64.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -26,5 +26,10 @@ namespace Provetex.Item
         {
 
         }
+
+        private void DataGrid_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

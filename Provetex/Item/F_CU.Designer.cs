@@ -60,6 +60,7 @@
             this.Button_back.Size = new System.Drawing.Size(113, 46);
             this.Button_back.TabIndex = 30;
             this.Button_back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Button_back.Click += new System.EventHandler(this.Button_back_Click);
             // 
             // Button_save
             // 
@@ -85,6 +86,7 @@
             this.Button_save.Size = new System.Drawing.Size(113, 46);
             this.Button_save.TabIndex = 29;
             this.Button_save.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Button_save.Click += new System.EventHandler(this.Button_save_Click);
             // 
             // Textbox_phone
             // 
@@ -101,7 +103,7 @@
             this.Textbox_phone.Location = new System.Drawing.Point(71, 272);
             this.Textbox_phone.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_phone.Name = "Textbox_phone";
-            this.Textbox_phone.Size = new System.Drawing.Size(193, 33);
+            this.Textbox_phone.Size = new System.Drawing.Size(181, 33);
             this.Textbox_phone.TabIndex = 27;
             this.Textbox_phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 

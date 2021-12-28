@@ -40,6 +40,7 @@
             this.Textbox_searsh = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.Dropdown_articles = new Bunifu.Framework.UI.BunifuDropdown();
+            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,6 +75,7 @@
             this.DataGrid_list.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGrid_list.Size = new System.Drawing.Size(776, 388);
             this.DataGrid_list.TabIndex = 6;
+            this.DataGrid_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_list_CellContentClick);
             // 
             // delete
             // 
@@ -95,9 +97,11 @@
             // 
             // Btn_refresh
             // 
+            this.Btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("Btn_refresh.Image")));
             this.Btn_refresh.Location = new System.Drawing.Point(759, 143);
             this.Btn_refresh.Name = "Btn_refresh";
             this.Btn_refresh.Size = new System.Drawing.Size(33, 33);
+            this.Btn_refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Btn_refresh.TabIndex = 11;
             this.Btn_refresh.TabStop = false;
             // 
@@ -122,13 +126,13 @@
             this.Button_add.IconVisible = true;
             this.Button_add.IconZoom = 50D;
             this.Button_add.IsTab = false;
-            this.Button_add.Location = new System.Drawing.Point(239, 143);
+            this.Button_add.Location = new System.Drawing.Point(16, 143);
             this.Button_add.Name = "Button_add";
             this.Button_add.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.Button_add.OnHovercolor = System.Drawing.Color.RoyalBlue;
             this.Button_add.OnHoverTextColor = System.Drawing.Color.White;
             this.Button_add.selected = false;
-            this.Button_add.Size = new System.Drawing.Size(295, 33);
+            this.Button_add.Size = new System.Drawing.Size(257, 33);
             this.Button_add.TabIndex = 10;
             this.Button_add.Text = "Ajouter un article d un fournisseur";
             this.Button_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,13 +186,28 @@
             this.Dropdown_articles.DisabledColor = System.Drawing.Color.Gray;
             this.Dropdown_articles.ForeColor = System.Drawing.Color.White;
             this.Dropdown_articles.Items = new string[0];
-            this.Dropdown_articles.Location = new System.Drawing.Point(16, 143);
+            this.Dropdown_articles.Location = new System.Drawing.Point(279, 143);
             this.Dropdown_articles.Name = "Dropdown_articles";
             this.Dropdown_articles.NomalColor = System.Drawing.Color.RoyalBlue;
             this.Dropdown_articles.onHoverColor = System.Drawing.Color.RoyalBlue;
             this.Dropdown_articles.selectedIndex = -1;
-            this.Dropdown_articles.Size = new System.Drawing.Size(217, 33);
+            this.Dropdown_articles.Size = new System.Drawing.Size(104, 33);
             this.Dropdown_articles.TabIndex = 12;
+            // 
+            // bunifuDropdown1
+            // 
+            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDropdown1.BorderRadius = 3;
+            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuDropdown1.ForeColor = System.Drawing.Color.White;
+            this.bunifuDropdown1.Items = new string[0];
+            this.bunifuDropdown1.Location = new System.Drawing.Point(389, 143);
+            this.bunifuDropdown1.Name = "bunifuDropdown1";
+            this.bunifuDropdown1.NomalColor = System.Drawing.Color.RoyalBlue;
+            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.RoyalBlue;
+            this.bunifuDropdown1.selectedIndex = -1;
+            this.bunifuDropdown1.Size = new System.Drawing.Size(145, 33);
+            this.bunifuDropdown1.TabIndex = 13;
             // 
             // F_RD
             // 
@@ -196,6 +215,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 580);
+            this.Controls.Add(this.bunifuDropdown1);
             this.Controls.Add(this.Dropdown_articles);
             this.Controls.Add(this.DataGrid_list);
             this.Controls.Add(this.Btn_refresh);
@@ -226,5 +246,6 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_searsh;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuDropdown Dropdown_articles;
+        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
     }
 }

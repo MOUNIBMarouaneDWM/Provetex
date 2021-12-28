@@ -146,7 +146,7 @@
             this.Button_back.ActiveFillColor = System.Drawing.Color.Gray;
             this.Button_back.ActiveForecolor = System.Drawing.Color.White;
             this.Button_back.ActiveLineColor = System.Drawing.Color.Gray;
-            this.Button_back.BackColor = System.Drawing.Color.White;
+            this.Button_back.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Button_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button_back.BackgroundImage")));
             this.Button_back.ButtonText = "Annuler";
             this.Button_back.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -179,6 +179,7 @@
             this.Controls.Add(this.Textbox_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_CU";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_CU";
             this.Load += new System.EventHandler(this.F_CU_Load);
             this.ResumeLayout(false);

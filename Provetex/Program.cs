@@ -16,13 +16,13 @@ namespace Provetex
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //var users = (from i in provetex.Users
-            //             select i).ToList();
-            //if (users.Count == 0)
-            //    Application.Run(new Auth.F_register());
-            //else
-            //    Application.Run(new Auth.F_login());
-            Application.Run(new Dashboard());
+            var users = (from i in provetex.Users
+                         select i).ToList();
+            if (users.Count == 0)
+                Application.Run(new Auth.F_register());
+            else
+                Application.Run(new Auth.F_login());
+            //Application.Run(new Dashboard());
         }
 
         //Entity Provetex
@@ -36,14 +36,14 @@ namespace Provetex
                 //Show the hide pic and hide the other
                 pictureHide.Visible = false;
                 pictureShow.Visible = true;
-
             }
         }
 
         //Globals
-        public static int id_supplier;
-        public static int id_achat;
-        public static int id_item;
+        public static int? id_supplier;
+        public static int? id_achat;
+        public static int? id_item;
+        public static int? id_sup_item;
         public static bool updateSupplier = false;
 
     }

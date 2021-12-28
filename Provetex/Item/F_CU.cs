@@ -21,5 +21,15 @@ namespace Provetex.Item
         {
 
         }
+
+        private void Button_save_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Button_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

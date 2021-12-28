@@ -124,5 +124,10 @@ namespace Provetex
             Form form = new Supplier.F_Details();
             Panelaffiche(form);
         }
+
+        private void button_list_articles_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

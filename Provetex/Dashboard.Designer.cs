@@ -36,6 +36,7 @@
             this.button_list_fourni = new System.Windows.Forms.Button();
             this.button_articles = new System.Windows.Forms.Button();
             this.panel_submenu_fourni = new System.Windows.Forms.Panel();
+            this.button_details_fournis = new System.Windows.Forms.Button();
             this.button_add_fourni = new System.Windows.Forms.Button();
             this.panel_bar = new System.Windows.Forms.Panel();
             this.button_achats = new System.Windows.Forms.Button();
@@ -49,9 +50,8 @@
             this.panel_submenu_achat = new System.Windows.Forms.Panel();
             this.panel_Menu = new System.Windows.Forms.Panel();
             this.panel_submenu_articles = new System.Windows.Forms.Panel();
-            this.panel_container = new System.Windows.Forms.Panel();
             this.button_details_articles = new System.Windows.Forms.Button();
-            this.button_details_fournis = new System.Windows.Forms.Button();
+            this.panel_container = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.icon_close)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel_submenu_fourni.SuspendLayout();
@@ -169,6 +169,25 @@
             this.panel_submenu_fourni.Size = new System.Drawing.Size(183, 135);
             this.panel_submenu_fourni.TabIndex = 1;
             // 
+            // button_details_fournis
+            // 
+            this.button_details_fournis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_details_fournis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_details_fournis.FlatAppearance.BorderSize = 0;
+            this.button_details_fournis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_details_fournis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_details_fournis.ForeColor = System.Drawing.Color.White;
+            this.button_details_fournis.Location = new System.Drawing.Point(0, 90);
+            this.button_details_fournis.Name = "button_details_fournis";
+            this.button_details_fournis.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button_details_fournis.Size = new System.Drawing.Size(183, 45);
+            this.button_details_fournis.TabIndex = 3;
+            this.button_details_fournis.Text = "details";
+            this.button_details_fournis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_details_fournis.UseMnemonic = false;
+            this.button_details_fournis.UseVisualStyleBackColor = false;
+            this.button_details_fournis.Click += new System.EventHandler(this.button_details_fournis_Click);
+            // 
             // button_add_fourni
             // 
             this.button_add_fourni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
@@ -255,6 +274,7 @@
             this.button_list_articles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_list_articles.UseMnemonic = false;
             this.button_list_articles.UseVisualStyleBackColor = false;
+            this.button_list_articles.Click += new System.EventHandler(this.button_list_articles_Click);
             // 
             // button_credits
             // 
@@ -391,15 +411,6 @@
             this.panel_submenu_articles.Size = new System.Drawing.Size(183, 135);
             this.panel_submenu_articles.TabIndex = 3;
             // 
-            // panel_container
-            // 
-            this.panel_container.BackColor = System.Drawing.Color.White;
-            this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_container.Location = new System.Drawing.Point(200, 20);
-            this.panel_container.Name = "panel_container";
-            this.panel_container.Size = new System.Drawing.Size(800, 580);
-            this.panel_container.TabIndex = 6;
-            // 
             // button_details_articles
             // 
             this.button_details_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -418,24 +429,14 @@
             this.button_details_articles.UseMnemonic = false;
             this.button_details_articles.UseVisualStyleBackColor = false;
             // 
-            // button_details_fournis
+            // panel_container
             // 
-            this.button_details_fournis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_details_fournis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_details_fournis.FlatAppearance.BorderSize = 0;
-            this.button_details_fournis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_details_fournis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_details_fournis.ForeColor = System.Drawing.Color.White;
-            this.button_details_fournis.Location = new System.Drawing.Point(0, 90);
-            this.button_details_fournis.Name = "button_details_fournis";
-            this.button_details_fournis.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_details_fournis.Size = new System.Drawing.Size(183, 45);
-            this.button_details_fournis.TabIndex = 3;
-            this.button_details_fournis.Text = "details";
-            this.button_details_fournis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_details_fournis.UseMnemonic = false;
-            this.button_details_fournis.UseVisualStyleBackColor = false;
-            this.button_details_fournis.Click += new System.EventHandler(this.button_details_fournis_Click);
+            this.panel_container.BackColor = System.Drawing.Color.White;
+            this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_container.Location = new System.Drawing.Point(200, 20);
+            this.panel_container.Name = "panel_container";
+            this.panel_container.Size = new System.Drawing.Size(800, 580);
+            this.panel_container.TabIndex = 6;
             // 
             // Dashboard
             // 
