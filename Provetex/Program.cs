@@ -18,11 +18,11 @@ namespace Provetex
             Application.SetCompatibleTextRenderingDefault(false);
             var users = (from i in provetex.Users
                          select i).ToList();
-            if (users.Count == 0)
-                Application.Run(new Auth.F_register());
-            else
-                Application.Run(new Auth.F_login());
-            //Application.Run(new Dashboard());
+            //if (users.Count == 0)
+            //    Application.Run(new Auth.F_register());
+            //else
+            //    Application.Run(new Auth.F_login());
+            Application.Run(new Dashboard());
         }
 
         //Entity Provetex

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Details));
             this.DataGrid_list = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.delet = new System.Windows.Forms.DataGridViewImageColumn();
@@ -40,14 +40,14 @@
             this.pictureBox_back = new System.Windows.Forms.PictureBox();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel_form = new System.Windows.Forms.Panel();
-            this.radioButton_notNew = new System.Windows.Forms.RadioButton();
+            this.panel_choise = new System.Windows.Forms.Panel();
             this.radioButton_new = new System.Windows.Forms.RadioButton();
-            this.Dropdown_list_article = new Bunifu.Framework.UI.BunifuDropdown();
+            this.radioButton_notNew = new System.Windows.Forms.RadioButton();
             this.Button_back = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Button_save = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.Textbox_phone = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.Textbox_prix = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.Textbox_artcle = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.panel_choise = new System.Windows.Forms.Panel();
+            this.Dropdown_list_article = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_back)).BeginInit();
@@ -57,19 +57,19 @@
             // 
             // DataGrid_list
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGrid_list.BackgroundColor = System.Drawing.Color.White;
             this.DataGrid_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGrid_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGrid_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGrid_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.delet,
@@ -172,7 +172,7 @@
             this.Button_add.IconVisible = true;
             this.Button_add.IconZoom = 50D;
             this.Button_add.IsTab = false;
-            this.Button_add.Location = new System.Drawing.Point(594, 142);
+            this.Button_add.Location = new System.Drawing.Point(525, 146);
             this.Button_add.Name = "Button_add";
             this.Button_add.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.Button_add.OnHovercolor = System.Drawing.Color.RoyalBlue;
@@ -189,28 +189,25 @@
             // panel_form
             // 
             this.panel_form.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel_form.Controls.Add(this.panel_choise);
             this.panel_form.Controls.Add(this.Dropdown_list_article);
+            this.panel_form.Controls.Add(this.panel_choise);
             this.panel_form.Controls.Add(this.Button_back);
             this.panel_form.Controls.Add(this.Button_save);
-            this.panel_form.Controls.Add(this.Textbox_phone);
+            this.panel_form.Controls.Add(this.Textbox_prix);
             this.panel_form.Controls.Add(this.Textbox_artcle);
             this.panel_form.Location = new System.Drawing.Point(457, 182);
             this.panel_form.Name = "panel_form";
             this.panel_form.Size = new System.Drawing.Size(331, 347);
             this.panel_form.TabIndex = 15;
             // 
-            // radioButton_notNew
+            // panel_choise
             // 
-            this.radioButton_notNew.AutoSize = true;
-            this.radioButton_notNew.Location = new System.Drawing.Point(146, 11);
-            this.radioButton_notNew.Name = "radioButton_notNew";
-            this.radioButton_notNew.Size = new System.Drawing.Size(110, 17);
-            this.radioButton_notNew.TabIndex = 38;
-            this.radioButton_notNew.TabStop = true;
-            this.radioButton_notNew.Text = "Article alredy exict";
-            this.radioButton_notNew.UseVisualStyleBackColor = true;
-            this.radioButton_notNew.CheckedChanged += new System.EventHandler(this.radioButton_notNew_CheckedChanged);
+            this.panel_choise.Controls.Add(this.radioButton_new);
+            this.panel_choise.Controls.Add(this.radioButton_notNew);
+            this.panel_choise.Location = new System.Drawing.Point(36, 3);
+            this.panel_choise.Name = "panel_choise";
+            this.panel_choise.Size = new System.Drawing.Size(259, 38);
+            this.panel_choise.TabIndex = 39;
             // 
             // radioButton_new
             // 
@@ -224,20 +221,17 @@
             this.radioButton_new.UseVisualStyleBackColor = true;
             this.radioButton_new.CheckedChanged += new System.EventHandler(this.radioButton_new_CheckedChanged);
             // 
-            // Dropdown_list_article
+            // radioButton_notNew
             // 
-            this.Dropdown_list_article.BackColor = System.Drawing.Color.Transparent;
-            this.Dropdown_list_article.BorderRadius = 3;
-            this.Dropdown_list_article.DisabledColor = System.Drawing.Color.Gray;
-            this.Dropdown_list_article.ForeColor = System.Drawing.Color.White;
-            this.Dropdown_list_article.Items = new string[0];
-            this.Dropdown_list_article.Location = new System.Drawing.Point(36, 58);
-            this.Dropdown_list_article.Name = "Dropdown_list_article";
-            this.Dropdown_list_article.NomalColor = System.Drawing.Color.RoyalBlue;
-            this.Dropdown_list_article.onHoverColor = System.Drawing.Color.RoyalBlue;
-            this.Dropdown_list_article.selectedIndex = -1;
-            this.Dropdown_list_article.Size = new System.Drawing.Size(259, 35);
-            this.Dropdown_list_article.TabIndex = 36;
+            this.radioButton_notNew.AutoSize = true;
+            this.radioButton_notNew.Location = new System.Drawing.Point(146, 11);
+            this.radioButton_notNew.Name = "radioButton_notNew";
+            this.radioButton_notNew.Size = new System.Drawing.Size(110, 17);
+            this.radioButton_notNew.TabIndex = 38;
+            this.radioButton_notNew.TabStop = true;
+            this.radioButton_notNew.Text = "Article alredy exict";
+            this.radioButton_notNew.UseVisualStyleBackColor = true;
+            this.radioButton_notNew.CheckedChanged += new System.EventHandler(this.radioButton_notNew_CheckedChanged);
             // 
             // Button_back
             // 
@@ -291,24 +285,24 @@
             this.Button_save.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Button_save.Click += new System.EventHandler(this.Button_save_Click);
             // 
-            // Textbox_phone
+            // Textbox_prix
             // 
-            this.Textbox_phone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Textbox_phone.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Textbox_phone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.Textbox_phone.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.Textbox_phone.HintText = "Prix";
-            this.Textbox_phone.isPassword = false;
-            this.Textbox_phone.LineFocusedColor = System.Drawing.Color.Blue;
-            this.Textbox_phone.LineIdleColor = System.Drawing.Color.Gray;
-            this.Textbox_phone.LineMouseHoverColor = System.Drawing.Color.Gray;
-            this.Textbox_phone.LineThickness = 3;
-            this.Textbox_phone.Location = new System.Drawing.Point(36, 157);
-            this.Textbox_phone.Margin = new System.Windows.Forms.Padding(4);
-            this.Textbox_phone.Name = "Textbox_phone";
-            this.Textbox_phone.Size = new System.Drawing.Size(181, 33);
-            this.Textbox_phone.TabIndex = 33;
-            this.Textbox_phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_prix.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Textbox_prix.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Textbox_prix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
+            this.Textbox_prix.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
+            this.Textbox_prix.HintText = "Prix";
+            this.Textbox_prix.isPassword = false;
+            this.Textbox_prix.LineFocusedColor = System.Drawing.Color.Blue;
+            this.Textbox_prix.LineIdleColor = System.Drawing.Color.Gray;
+            this.Textbox_prix.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.Textbox_prix.LineThickness = 3;
+            this.Textbox_prix.Location = new System.Drawing.Point(36, 157);
+            this.Textbox_prix.Margin = new System.Windows.Forms.Padding(4);
+            this.Textbox_prix.Name = "Textbox_prix";
+            this.Textbox_prix.Size = new System.Drawing.Size(181, 33);
+            this.Textbox_prix.TabIndex = 33;
+            this.Textbox_prix.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // Textbox_artcle
             // 
@@ -330,14 +324,15 @@
             this.Textbox_artcle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Textbox_artcle.Visible = false;
             // 
-            // panel_choise
+            // Dropdown_list_article
             // 
-            this.panel_choise.Controls.Add(this.radioButton_new);
-            this.panel_choise.Controls.Add(this.radioButton_notNew);
-            this.panel_choise.Location = new System.Drawing.Point(36, 3);
-            this.panel_choise.Name = "panel_choise";
-            this.panel_choise.Size = new System.Drawing.Size(259, 38);
-            this.panel_choise.TabIndex = 39;
+            this.Dropdown_list_article.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Dropdown_list_article.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Dropdown_list_article.FormattingEnabled = true;
+            this.Dropdown_list_article.Location = new System.Drawing.Point(36, 72);
+            this.Dropdown_list_article.Name = "Dropdown_list_article";
+            this.Dropdown_list_article.Size = new System.Drawing.Size(259, 21);
+            this.Dropdown_list_article.TabIndex = 16;
             // 
             // F_Details
             // 
@@ -380,11 +375,11 @@
         private System.Windows.Forms.Panel panel_form;
         private Bunifu.Framework.UI.BunifuThinButton2 Button_back;
         private Bunifu.Framework.UI.BunifuThinButton2 Button_save;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_phone;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_prix;
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_artcle;
         private System.Windows.Forms.RadioButton radioButton_notNew;
         private System.Windows.Forms.RadioButton radioButton_new;
-        private Bunifu.Framework.UI.BunifuDropdown Dropdown_list_article;
         private System.Windows.Forms.Panel panel_choise;
+        private System.Windows.Forms.ComboBox Dropdown_list_article;
     }
 }

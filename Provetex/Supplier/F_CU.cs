@@ -55,7 +55,6 @@ namespace Provetex.Supplier
             Program.updateSupplier = false;
             this.Close();
         }
-
         //
         private void F_CU_Load(object sender, EventArgs e)
         {
