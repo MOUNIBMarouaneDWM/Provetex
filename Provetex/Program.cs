@@ -18,6 +18,7 @@ namespace Provetex
             Application.SetCompatibleTextRenderingDefault(false);
             var users = (from i in provetex.Users
                          select i).ToList();
+            //test
             //if (users.Count == 0)
             //    Application.Run(new Auth.F_register());
             //else
