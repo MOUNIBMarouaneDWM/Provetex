@@ -40,6 +40,7 @@
             this.pictureBox_back = new System.Windows.Forms.PictureBox();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel_form = new System.Windows.Forms.Panel();
+            this.Dropdown_list_article = new System.Windows.Forms.ComboBox();
             this.panel_choise = new System.Windows.Forms.Panel();
             this.radioButton_new = new System.Windows.Forms.RadioButton();
             this.radioButton_notNew = new System.Windows.Forms.RadioButton();
@@ -47,7 +48,6 @@
             this.Button_save = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Textbox_prix = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.Textbox_artcle = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.Dropdown_list_article = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_back)).BeginInit();
@@ -200,6 +200,16 @@
             this.panel_form.Size = new System.Drawing.Size(331, 347);
             this.panel_form.TabIndex = 15;
             // 
+            // Dropdown_list_article
+            // 
+            this.Dropdown_list_article.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Dropdown_list_article.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Dropdown_list_article.FormattingEnabled = true;
+            this.Dropdown_list_article.Location = new System.Drawing.Point(36, 72);
+            this.Dropdown_list_article.Name = "Dropdown_list_article";
+            this.Dropdown_list_article.Size = new System.Drawing.Size(259, 21);
+            this.Dropdown_list_article.TabIndex = 16;
+            // 
             // panel_choise
             // 
             this.panel_choise.Controls.Add(this.radioButton_new);
@@ -323,16 +333,6 @@
             this.Textbox_artcle.TabIndex = 32;
             this.Textbox_artcle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Textbox_artcle.Visible = false;
-            // 
-            // Dropdown_list_article
-            // 
-            this.Dropdown_list_article.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Dropdown_list_article.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Dropdown_list_article.FormattingEnabled = true;
-            this.Dropdown_list_article.Location = new System.Drawing.Point(36, 72);
-            this.Dropdown_list_article.Name = "Dropdown_list_article";
-            this.Dropdown_list_article.Size = new System.Drawing.Size(259, 21);
-            this.Dropdown_list_article.TabIndex = 16;
             // 
             // F_Details
             // 
