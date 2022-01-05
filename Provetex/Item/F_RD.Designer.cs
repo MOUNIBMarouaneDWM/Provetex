@@ -35,7 +35,6 @@
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.detail = new System.Windows.Forms.DataGridViewImageColumn();
             this.Btn_refresh = new System.Windows.Forms.PictureBox();
-            this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Textbox_searsh = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label1 = new System.Windows.Forms.Label();
@@ -105,41 +104,6 @@
             this.Btn_refresh.TabIndex = 11;
             this.Btn_refresh.TabStop = false;
             // 
-            // Button_add
-            // 
-            this.Button_add.Activecolor = System.Drawing.Color.Silver;
-            this.Button_add.BackColor = System.Drawing.Color.RoyalBlue;
-            this.Button_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button_add.BorderRadius = 0;
-            this.Button_add.ButtonText = "Ajouter un article d un fournisseur";
-            this.Button_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Button_add.DisabledColor = System.Drawing.Color.RoyalBlue;
-            this.Button_add.Iconcolor = System.Drawing.Color.Transparent;
-            this.Button_add.Iconimage = ((System.Drawing.Image)(resources.GetObject("Button_add.Iconimage")));
-            this.Button_add.Iconimage_right = null;
-            this.Button_add.Iconimage_right_Selected = null;
-            this.Button_add.Iconimage_Selected = null;
-            this.Button_add.IconMarginLeft = 0;
-            this.Button_add.IconMarginRight = 0;
-            this.Button_add.IconRightVisible = true;
-            this.Button_add.IconRightZoom = 0D;
-            this.Button_add.IconVisible = true;
-            this.Button_add.IconZoom = 50D;
-            this.Button_add.IsTab = false;
-            this.Button_add.Location = new System.Drawing.Point(16, 143);
-            this.Button_add.Name = "Button_add";
-            this.Button_add.Normalcolor = System.Drawing.Color.RoyalBlue;
-            this.Button_add.OnHovercolor = System.Drawing.Color.RoyalBlue;
-            this.Button_add.OnHoverTextColor = System.Drawing.Color.White;
-            this.Button_add.selected = false;
-            this.Button_add.Size = new System.Drawing.Size(257, 33);
-            this.Button_add.TabIndex = 10;
-            this.Button_add.Text = "Ajouter un article d un fournisseur";
-            this.Button_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Button_add.Textcolor = System.Drawing.Color.White;
-            this.Button_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_add.Click += new System.EventHandler(this.Button_add_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -186,12 +150,12 @@
             this.Dropdown_articles.DisabledColor = System.Drawing.Color.Gray;
             this.Dropdown_articles.ForeColor = System.Drawing.Color.White;
             this.Dropdown_articles.Items = new string[0];
-            this.Dropdown_articles.Location = new System.Drawing.Point(279, 143);
+            this.Dropdown_articles.Location = new System.Drawing.Point(183, 143);
             this.Dropdown_articles.Name = "Dropdown_articles";
             this.Dropdown_articles.NomalColor = System.Drawing.Color.RoyalBlue;
             this.Dropdown_articles.onHoverColor = System.Drawing.Color.RoyalBlue;
             this.Dropdown_articles.selectedIndex = -1;
-            this.Dropdown_articles.Size = new System.Drawing.Size(104, 33);
+            this.Dropdown_articles.Size = new System.Drawing.Size(200, 33);
             this.Dropdown_articles.TabIndex = 12;
             // 
             // bunifuDropdown1
@@ -219,7 +183,6 @@
             this.Controls.Add(this.Dropdown_articles);
             this.Controls.Add(this.DataGrid_list);
             this.Controls.Add(this.Btn_refresh);
-            this.Controls.Add(this.Button_add);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Textbox_searsh);
             this.Controls.Add(this.label1);
@@ -241,7 +204,6 @@
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn detail;
         private System.Windows.Forms.PictureBox Btn_refresh;
-        private Bunifu.Framework.UI.BunifuFlatButton Button_add;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_searsh;
         private System.Windows.Forms.Label label1;

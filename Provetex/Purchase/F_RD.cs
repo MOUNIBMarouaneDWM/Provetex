@@ -46,9 +46,14 @@ namespace Provetex.Purchase
             if (!Application.OpenForms.OfType<Purchase.F_CU>().Any())
             {
                 Form form = new Purchase.F_CU();
-                form.TopMost = true;
+                //form.TopMost = true;
                 form.Show();
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            list_purchas();
         }
     }
 }
