@@ -21,26 +21,58 @@ namespace Provetex.Purchase
         decimal total;
         private void custumaz()
         {
-            //var supplier = (from sup_item in Program.provetex.suppliers_items
-            //                where sup_item.C_supplier in(from sup in Program.provetex.suppliers
-            //                                             select sup.C_id_supplier)ToList()
-            //                           select new
-            //                           {
-            //                               name = sup.C_name_supplier,
-            //                               id = sup.C_id_supplier
-            //                           }).ToList();
-            //comboBox_sup.DataSource = Program.ExecuterSelection(@"select s._id_supplier,s._name_supplier from supplier s 
-            //                                                        where s._id_supplier in (select _supplier
-            //                                                        from suppliers_items)");
+            int? id_sup_item = Program.id_sup_item;
+            int? id_article = Program.id_item_purchase;
+            int? id_suplier = Program.id_suplier_purchase;
 
-            //comboBox_sup.ValueMember = "_id_supplier";
-            //comboBox_sup.DisplayMember = "_name_supplier";
-            comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
-                                                                    from item
-                                                                    where item._id_item in (select _item
-                                                                    from suppliers_items)");
-            comboBox_item.ValueMember = "_id_item";
-            comboBox_item.DisplayMember = "_name_item";
+
+            if (!Program.pannier)
+            {
+                comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
+                                                                        from item
+                                                                        where item._id_item in (select _item
+                                                                        from suppliers_items)");
+                comboBox_item.ValueMember = "_id_item";
+                comboBox_item.DisplayMember = "_name_item";
+            }
+            else
+            {
+                //comboBox_item.DataSource = Program.provetex.items.Where(c => c.C_id_item == id_article);
+                //comboBox_item.ValueMember = "C_id_item";
+                //comboBox_item.DisplayMember = "_name_item";
+                //comboBox_sup.DataSource = Program.provetex.suppliers.Where(c => c.C_id_supplier == id_suplier);
+                //comboBox_sup.ValueMember = "_id_supplier";
+                //comboBox_sup.DisplayMember = "_name_supplier";
+
+                //var item = from c in Program.provetex.suppliers_items
+                //           where c.C_id_suppliers_items == id
+                //           select c.item;
+
+                //comboBox_item.DataSource = item;
+                //comboBox_item.DisplayMember = "_id_item";
+                //comboBox_item.DisplayMember = "_name_item";
+
+                //var suplier = from c in Program.provetex.suppliers_items
+                //              where c.C_id_suppliers_items == id
+                //              select c.supplier;
+                //comboBox_sup.DataSource = suplier;
+                //comboBox_sup.ValueMember = "C_id_supplier";
+                //comboBox_sup.DisplayMember = "C_name_supplier";
+                comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
+                                                                                        from item
+                                                                                        where item._id_item in (select _item
+                                                                                        from suppliers_items
+                where _item=" + id_article + ")");
+                comboBox_item.ValueMember = "_id_item";
+                comboBox_item.DisplayMember = "_name_item";
+                comboBox_sup.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
+                                                                                        from item
+                                                                                        where item._id_item in (select _item
+                                                                                        from suppliers_items
+                where _item=" + id_article + ")");
+                comboBox_item.ValueMember = "_id_item";
+                comboBox_item.DisplayMember = "_name_item";
+            }
 
         }
         /// </methods>

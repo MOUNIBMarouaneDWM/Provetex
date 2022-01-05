@@ -31,6 +31,8 @@ namespace Provetex.Item
         {
             int index = e.RowIndex;
             int id = (int)DataGrid_list.Rows[index].Cells["ID"].Value;
+            int suplier = (int)DataGrid_list.Rows[index].Cells["ID_suplier"].Value;
+            int articl=(int)DataGrid_list.Rows[index].Cells["ID_articl"].Value;
             if (e.ColumnIndex == 0)
             {
                 DialogResult result = MessageBox.Show("Etes-vous sure?", "Confirmation", MessageBoxButtons.YesNo);
@@ -45,8 +47,13 @@ namespace Provetex.Item
             }
             else if (e.ColumnIndex == 1)
             {
+                Program.id_sup_item = id;
+                Program.id_item_purchase = articl;
+                Program.id_suplier_purchase = suplier;
+                Program.pannier = true;
                 Form form = new Purchase.F_CU();
                 form.Show();
+
                 //Program.updateItem = true;
                 //Program.id_sup_item = id;
                 //Program.updateItem = true;
@@ -69,11 +76,15 @@ namespace Provetex.Item
             DataGrid_list.DataSource = Program.provetex.suppliers_items.Select(item => new
             {
                 ID = item.C_id_suppliers_items,
+                ID_articl=item.C_item,
+                ID_suplier=item.C_supplier,
                 Article = item.item.C_name_item,
                 Fournisseur = item.supplier.C_name_supplier,
                 Prix = item.C_price
             }).ToList();
             DataGrid_list.Columns["ID"].Visible = false;
+            DataGrid_list.Columns["ID_articl"].Visible = false;
+            DataGrid_list.Columns["ID_suplier"].Visible = false;
 
         }
     }
