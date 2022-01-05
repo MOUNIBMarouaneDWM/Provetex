@@ -24,7 +24,12 @@ namespace Provetex
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        internal object SqlQuery(string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual DbSet<item> items { get; set; }
         public virtual DbSet<purchase> purchases { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }

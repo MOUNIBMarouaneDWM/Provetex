@@ -252,6 +252,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Purchase\F_CU.resx">
+      <DependentUpon>F_CU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase\F_RD.resx">
+      <DependentUpon>F_RD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Supplier\F_CU.resx">
       <DependentUpon>F_CU.cs</DependentUpon>
     </EmbeddedResource>

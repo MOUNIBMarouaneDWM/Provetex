@@ -69,10 +69,10 @@ namespace Provetex.Supplier
         private void F_Details_Load(object sender, EventArgs e)
         {
             ListSuppliers();
-            panel_form.Visible = false; 
+            panel_form.Visible = false;
             Button_add.Visible = false;
             Dropdown_list_article.DataSource = (from i in Program.provetex.items
-                                    select i).ToList();
+                                                select i).ToList();
             Dropdown_list_article.DisplayMember = "C_name_item";
             Dropdown_list_article.ValueMember = "C_id_item";
         }
@@ -83,6 +83,7 @@ namespace Provetex.Supplier
             {
                 if (e.ColumnIndex == 1)
                 {
+
                     DataGrid_list.Columns["delet"].Visible = true;
                     Button_add.Visible = true;
                     int index = e.RowIndex;
@@ -174,12 +175,65 @@ namespace Provetex.Supplier
             string action = Button_save.ButtonText;
             if (action.ToLower() == "enregistrer")
             {
-                MessageBox.Show("Enregistrer");
+                if (radioButton_new.Checked)
+                {
+                    string item_name = Textbox_artcle.Text;
+                    decimal prix = decimal.Parse(Textbox_prix.Text);
+                    if (item_name != "" && Textbox_prix.Text != "")
+                    {
+                        //add item in  items
+                        var item = new item
+                        {
+                            C_name_item = item_name
+                        };
+                        Program.provetex.items.Add(item);
+                        Program.provetex.SaveChanges();
+                        //add item in supitem
+                        var id = (from i in Program.provetex.items
+                                  where i.C_name_item == item_name
+                                  select new
+                                  {
+                                      i.C_id_item
+                                  }).Single();
+                        var item_sup = new suppliers_items
+                        {
+                            C_supplier = id_sup,
+                            C_item = id.C_id_item,
+                            C_price = prix,
+                            created_at = DateTime.Now,
+                            update_at = DateTime.Now
+                        };
+                        Program.provetex.suppliers_items.Add(item_sup);
+                        Program.provetex.SaveChanges();
+                        MessageBox.Show("seccess");
+                    }
+                    else
+                        MessageBox.Show("remplir les chom");
+                }
+                else if (radioButton_notNew.Checked)
+                {
+                    string item = Dropdown_list_article.SelectedValue.ToString();
+                    int iditem = int.Parse(item);
+                    decimal prix = decimal.Parse(Textbox_prix.Text);
+                    var item_sup = new suppliers_items
+                    {
+                        C_supplier = id_sup,
+                        C_item = iditem,
+                        C_price = prix,
+                        created_at = DateTime.Now,
+                        update_at = DateTime.Now
+                    };
+                    Program.provetex.suppliers_items.Add(item_sup);
+                    Program.provetex.SaveChanges();
+                    MessageBox.Show("seccess");
+
+                }
             }
             else
             {
                 var item = Program.provetex.suppliers_items.Find(Program.id_sup_item);
                 item.C_price = decimal.Parse(Textbox_prix.Text);
+                item.update_at = DateTime.Now;
                 Program.provetex.SaveChanges();
                 MessageBox.Show("update" + Program.id_sup_item.Value);
             }

@@ -43,8 +43,6 @@
             this.button_add_article = new System.Windows.Forms.Button();
             this.button_list_articles = new System.Windows.Forms.Button();
             this.button_credits = new System.Windows.Forms.Button();
-            this.button_achat_articles = new System.Windows.Forms.Button();
-            this.button_achat_fournis = new System.Windows.Forms.Button();
             this.button_list_achat = new System.Windows.Forms.Button();
             this.button_admin = new System.Windows.Forms.Button();
             this.panel_submenu_achat = new System.Windows.Forms.Panel();
@@ -283,50 +281,15 @@
             this.button_credits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_credits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_credits.ForeColor = System.Drawing.Color.White;
-            this.button_credits.Location = new System.Drawing.Point(0, 135);
+            this.button_credits.Location = new System.Drawing.Point(0, 45);
             this.button_credits.Name = "button_credits";
             this.button_credits.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.button_credits.Size = new System.Drawing.Size(183, 45);
             this.button_credits.TabIndex = 4;
-            this.button_credits.Text = "Credit";
+            this.button_credits.Text = "Check";
             this.button_credits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_credits.UseMnemonic = false;
             this.button_credits.UseVisualStyleBackColor = true;
-            // 
-            // button_achat_articles
-            // 
-            this.button_achat_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_achat_articles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_achat_articles.FlatAppearance.BorderSize = 0;
-            this.button_achat_articles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_achat_articles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_achat_articles.ForeColor = System.Drawing.Color.White;
-            this.button_achat_articles.Location = new System.Drawing.Point(0, 90);
-            this.button_achat_articles.Name = "button_achat_articles";
-            this.button_achat_articles.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_achat_articles.Size = new System.Drawing.Size(183, 45);
-            this.button_achat_articles.TabIndex = 3;
-            this.button_achat_articles.Text = "Artivles";
-            this.button_achat_articles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_achat_articles.UseMnemonic = false;
-            this.button_achat_articles.UseVisualStyleBackColor = false;
-            // 
-            // button_achat_fournis
-            // 
-            this.button_achat_fournis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_achat_fournis.FlatAppearance.BorderSize = 0;
-            this.button_achat_fournis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_achat_fournis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_achat_fournis.ForeColor = System.Drawing.Color.White;
-            this.button_achat_fournis.Location = new System.Drawing.Point(0, 45);
-            this.button_achat_fournis.Name = "button_achat_fournis";
-            this.button_achat_fournis.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_achat_fournis.Size = new System.Drawing.Size(183, 45);
-            this.button_achat_fournis.TabIndex = 1;
-            this.button_achat_fournis.Text = "Fournisseur";
-            this.button_achat_fournis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_achat_fournis.UseMnemonic = false;
-            this.button_achat_fournis.UseVisualStyleBackColor = true;
             // 
             // button_list_achat
             // 
@@ -345,6 +308,7 @@
             this.button_list_achat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_list_achat.UseMnemonic = false;
             this.button_list_achat.UseVisualStyleBackColor = false;
+            this.button_list_achat.Click += new System.EventHandler(this.button_list_achat_Click);
             // 
             // button_admin
             // 
@@ -357,7 +321,7 @@
             this.button_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.button_admin.Location = new System.Drawing.Point(0, 709);
+            this.button_admin.Location = new System.Drawing.Point(0, 619);
             this.button_admin.Name = "button_admin";
             this.button_admin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button_admin.Size = new System.Drawing.Size(183, 45);
@@ -372,13 +336,11 @@
             // 
             this.panel_submenu_achat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
             this.panel_submenu_achat.Controls.Add(this.button_credits);
-            this.panel_submenu_achat.Controls.Add(this.button_achat_articles);
-            this.panel_submenu_achat.Controls.Add(this.button_achat_fournis);
             this.panel_submenu_achat.Controls.Add(this.button_list_achat);
             this.panel_submenu_achat.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_submenu_achat.Location = new System.Drawing.Point(0, 529);
             this.panel_submenu_achat.Name = "panel_submenu_achat";
-            this.panel_submenu_achat.Size = new System.Drawing.Size(183, 180);
+            this.panel_submenu_achat.Size = new System.Drawing.Size(183, 90);
             this.panel_submenu_achat.TabIndex = 5;
             // 
             // panel_Menu
@@ -475,8 +437,6 @@
         private System.Windows.Forms.Button button_add_article;
         private System.Windows.Forms.Button button_list_articles;
         private System.Windows.Forms.Button button_credits;
-        private System.Windows.Forms.Button button_achat_articles;
-        private System.Windows.Forms.Button button_achat_fournis;
         private System.Windows.Forms.Button button_list_achat;
         private System.Windows.Forms.Button button_admin;
         private System.Windows.Forms.Panel panel_submenu_achat;

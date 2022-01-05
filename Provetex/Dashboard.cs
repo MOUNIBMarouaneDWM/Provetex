@@ -97,14 +97,13 @@ namespace Provetex
 
         private void button_add_fourni_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Supplier.F_CU>().Any())
-                MessageBox.Show("Form is opened");
-            else
+            if (!Application.OpenForms.OfType<Supplier.F_CU>().Any())
             {
                 Form form = new Supplier.F_CU();
                 form.TopMost = true;
                 form.Show();
             }
+
         }
 
         private void button_list_fourni_Click(object sender, EventArgs e)
@@ -128,6 +127,12 @@ namespace Provetex
         private void button_list_articles_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_list_achat_Click(object sender, EventArgs e)
+        {
+            Form form = new Purchase.F_RD();
+            Panelaffiche(form);
         }
     }
 }

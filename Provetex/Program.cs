@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,13 +41,55 @@ namespace Provetex
                 pictureShow.Visible = true;
             }
         }
-
         //Globals
         public static int? id_supplier;
         public static int? id_achat;
         public static int? id_item;
         public static int? id_sup_item;
         public static bool updateSupplier = false;
-
+        ////peparer la connection
+        public static SqlConnection cnx = new SqlConnection(@"Data Source=.;Initial Catalog=Provetex;Integrated Security=True");
+        public static SqlCommand cmd = new SqlCommand("", cnx);
+        public static SqlDataReader dr;
+        // connection 
+        public static void cnnx()
+        {
+            if (cnx.State.ToString() != "Open")
+                cnx.Open();
+        }
+        // deconnection
+        public static void deconnection()
+        {
+            if (cnx.State != ConnectionState.Closed)
+                cnx.Close();
+        }
+        //Executer MAJ
+        public static void ExecuterMaj(string req)
+        {
+            cnnx();
+            cmd.CommandText = req;
+            cmd.ExecuteNonQuery();
+            deconnection();
+        }
+        //Executer Selection 
+        public static DataTable ExecuterSelection(string req)
+        {
+            cnnx();
+            cmd.CommandText = req;
+            DataTable dt = new DataTable();
+            dr = cmd.ExecuteReader();
+            dt.Load(dr);
+            deconnection();
+            return dt;
+        }
+        //Executer scalaire
+        public static string ExecuterScalaire(string req)
+        {
+            cnnx();
+            cmd.CommandText = req;
+            string affiFinal = cmd.ExecuteScalar().ToString();
+            deconnection();
+            return affiFinal;
+        }
     }
 }
