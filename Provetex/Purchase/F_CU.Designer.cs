@@ -34,9 +34,9 @@
             this.Button_back = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Button_save = new Bunifu.Framework.UI.BunifuThinButton2();
             this.num_qtt = new System.Windows.Forms.NumericUpDown();
-            this.Textbox_pricePaid = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label_totale = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -60,7 +60,6 @@
             this.comboBox_item.Name = "comboBox_item";
             this.comboBox_item.Size = new System.Drawing.Size(209, 21);
             this.comboBox_item.TabIndex = 1;
-            this.comboBox_item.SelectedIndexChanged += new System.EventHandler(this.comboBox_item_SelectedIndexChanged);
             // 
             // Button_back
             // 
@@ -86,7 +85,6 @@
             this.Button_back.Size = new System.Drawing.Size(113, 46);
             this.Button_back.TabIndex = 26;
             this.Button_back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Button_back.Click += new System.EventHandler(this.Button_back_Click);
             // 
             // Button_save
             // 
@@ -112,7 +110,6 @@
             this.Button_save.Size = new System.Drawing.Size(113, 46);
             this.Button_save.TabIndex = 25;
             this.Button_save.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Button_save.Click += new System.EventHandler(this.Button_save_Click);
             // 
             // num_qtt
             // 
@@ -122,26 +119,25 @@
             this.num_qtt.Name = "num_qtt";
             this.num_qtt.Size = new System.Drawing.Size(209, 20);
             this.num_qtt.TabIndex = 27;
-            this.num_qtt.ValueChanged += new System.EventHandler(this.num_qtt_ValueChanged);
             // 
-            // Textbox_pricePaid
+            // bunifuMaterialTextbox1
             // 
-            this.Textbox_pricePaid.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Textbox_pricePaid.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Textbox_pricePaid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.Textbox_pricePaid.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.Textbox_pricePaid.HintText = "Prix paid";
-            this.Textbox_pricePaid.isPassword = false;
-            this.Textbox_pricePaid.LineFocusedColor = System.Drawing.Color.Blue;
-            this.Textbox_pricePaid.LineIdleColor = System.Drawing.Color.Gray;
-            this.Textbox_pricePaid.LineMouseHoverColor = System.Drawing.Color.Gray;
-            this.Textbox_pricePaid.LineThickness = 3;
-            this.Textbox_pricePaid.Location = new System.Drawing.Point(51, 285);
-            this.Textbox_pricePaid.Margin = new System.Windows.Forms.Padding(4);
-            this.Textbox_pricePaid.Name = "Textbox_pricePaid";
-            this.Textbox_pricePaid.Size = new System.Drawing.Size(181, 33);
-            this.Textbox_pricePaid.TabIndex = 35;
-            this.Textbox_pricePaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
+            this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
+            this.bunifuMaterialTextbox1.HintText = "Prix paid";
+            this.bunifuMaterialTextbox1.isPassword = false;
+            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray;
+            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.bunifuMaterialTextbox1.LineThickness = 3;
+            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(51, 285);
+            this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
+            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(181, 33);
+            this.bunifuMaterialTextbox1.TabIndex = 35;
+            this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label1
             // 
@@ -153,15 +149,15 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "TOTAL :";
             // 
-            // label_totale
+            // label2
             // 
-            this.label_totale.AutoSize = true;
-            this.label_totale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label_totale.Location = new System.Drawing.Point(346, 194);
-            this.label_totale.Name = "label_totale";
-            this.label_totale.Size = new System.Drawing.Size(36, 16);
-            this.label_totale.TabIndex = 37;
-            this.label_totale.Text = "0.00";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(346, 194);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 16);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "0.00";
             // 
             // label3
             // 
@@ -193,7 +189,6 @@
             this.checkBox1.TabIndex = 41;
             this.checkBox1.Text = "a payee";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label5
             // 
@@ -224,9 +219,9 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label_totale);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Textbox_pricePaid);
+            this.Controls.Add(this.bunifuMaterialTextbox1);
             this.Controls.Add(this.num_qtt);
             this.Controls.Add(this.Button_back);
             this.Controls.Add(this.Button_save);
@@ -250,9 +245,9 @@
         private Bunifu.Framework.UI.BunifuThinButton2 Button_back;
         private Bunifu.Framework.UI.BunifuThinButton2 Button_save;
         private System.Windows.Forms.NumericUpDown num_qtt;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_pricePaid;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label_totale;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBox1;

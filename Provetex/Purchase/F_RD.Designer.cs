@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_RD));
             this.DataGrid_list = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.detail = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,6 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_sup = new System.Windows.Forms.ComboBox();
             this.comboBox_item = new System.Windows.Forms.ComboBox();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.detail = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,24 +76,6 @@
             this.DataGrid_list.Size = new System.Drawing.Size(776, 388);
             this.DataGrid_list.TabIndex = 6;
             // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.Name = "delete";
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 32;
-            // 
-            // detail
-            // 
-            this.detail.HeaderText = "";
-            this.detail.Image = ((System.Drawing.Image)(resources.GetObject("detail.Image")));
-            this.detail.Name = "detail";
-            this.detail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.detail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.detail.Width = 32;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Provetex.Properties.Resources.icons8_refresh_64;
@@ -103,7 +85,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Button_add
             // 
@@ -194,6 +175,24 @@
             this.comboBox_item.Name = "comboBox_item";
             this.comboBox_item.Size = new System.Drawing.Size(170, 21);
             this.comboBox_item.TabIndex = 13;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.Name = "delete";
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Width = 32;
+            // 
+            // detail
+            // 
+            this.detail.HeaderText = "";
+            this.detail.Image = ((System.Drawing.Image)(resources.GetObject("detail.Image")));
+            this.detail.Name = "detail";
+            this.detail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.detail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.detail.Width = 32;
             // 
             // F_RD
             // 
