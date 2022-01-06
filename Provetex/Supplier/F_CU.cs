@@ -30,12 +30,11 @@ namespace Provetex.Supplier
                     C_adress_supplier = Textbox_adrs.Text,
                     created_at = DateTime.Today,
                     update_at = DateTime.Today
-
                 };
                 Program.provetex.suppliers.Add(supplier);
                 Program.provetex.SaveChanges();
                 MessageBox.Show("added seccese");
-
+                Textbox_name.Text = Textbox_adrs.Text=Textbox_phone.Text=Textbox_email.Text="";
             }
             catch (Exception ex)
             {

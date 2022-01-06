@@ -34,30 +34,11 @@ namespace Provetex.Purchase
                                                                         from suppliers_items)");
                 comboBox_item.ValueMember = "_id_item";
                 comboBox_item.DisplayMember = "_name_item";
+                comboBox_item.Enabled = true;
             }
             else
             {
-                //comboBox_item.DataSource = Program.provetex.items.Where(c => c.C_id_item == id_article);
-                //comboBox_item.ValueMember = "C_id_item";
-                //comboBox_item.DisplayMember = "_name_item";
-                //comboBox_sup.DataSource = Program.provetex.suppliers.Where(c => c.C_id_supplier == id_suplier);
-                //comboBox_sup.ValueMember = "_id_supplier";
-                //comboBox_sup.DisplayMember = "_name_supplier";
 
-                //var item = from c in Program.provetex.suppliers_items
-                //           where c.C_id_suppliers_items == id
-                //           select c.item;
-
-                //comboBox_item.DataSource = item;
-                //comboBox_item.DisplayMember = "_id_item";
-                //comboBox_item.DisplayMember = "_name_item";
-
-                //var suplier = from c in Program.provetex.suppliers_items
-                //              where c.C_id_suppliers_items == id
-                //              select c.supplier;
-                //comboBox_sup.DataSource = suplier;
-                //comboBox_sup.ValueMember = "C_id_supplier";
-                //comboBox_sup.DisplayMember = "C_name_supplier";
                 comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
                                                                                         from item
                                                                                         where item._id_item in (select _item
@@ -65,13 +46,15 @@ namespace Provetex.Purchase
                 where _item=" + id_article + ")");
                 comboBox_item.ValueMember = "_id_item";
                 comboBox_item.DisplayMember = "_name_item";
-                comboBox_sup.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
-                                                                                        from item
-                                                                                        where item._id_item in (select _item
-                                                                                        from suppliers_items
-                where _item=" + id_article + ")");
-                comboBox_item.ValueMember = "_id_item";
-                comboBox_item.DisplayMember = "_name_item";
+                comboBox_sup.DataSource = Program.ExecuterSelection(@"select _id_supplier,_name_supplier
+from supplier
+where supplier._id_supplier in(select _supplier
+from suppliers_items
+where _supplier=" + id_suplier + ")");
+                comboBox_sup.ValueMember = "_id_supplier";
+                comboBox_sup.DisplayMember = "_name_supplier";
+                comboBox_item.Enabled = false;
+                comboBox_sup.Enabled = false;
             }
 
         }
@@ -120,6 +103,9 @@ namespace Provetex.Purchase
 
         private void Button_back_Click(object sender, EventArgs e)
         {
+            Program.pannier = false;
+            Program.id_item_purchase = null;
+            Program.id_suplier_purchase = null;
             this.Close();
         }
 
@@ -135,6 +121,8 @@ namespace Provetex.Purchase
 
             label_totale.Text = "" + total;
         }
+
+
 
         private void Button_save_Click(object sender, EventArgs e)
         {

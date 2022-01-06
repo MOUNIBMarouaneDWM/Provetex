@@ -18,15 +18,13 @@ namespace Provetex.Supplier
         }
         //globales
         private bool firstDetail = true;
-        private int id_item;
-        private int id_sup_item;
         private int id_sup;
+
         //Methods
         private void ListSuppliers()
         {
             pictureBox_back.Visible = false;
             label_titel.Text = "Fournisseurs";
-            DataGrid_list.Columns["detail"].Visible = true;
             DataGrid_list.DataSource = (from sup in Program.provetex.suppliers
                                         join sup_item in Program.provetex.suppliers_items on sup.C_id_supplier equals sup_item.C_supplier
                                         group sup by new { sup.C_id_supplier, sup.C_name_supplier }
@@ -38,10 +36,12 @@ namespace Provetex.Supplier
                                             NOMBRE_ARTICLE = g.Count(),
                                         }
                                         ).ToList();
+            DataGrid_list.Columns["detail"].Visible = true;
             DataGrid_list.Columns["delet"].Visible = false;
             firstDetail = true;
 
         }
+
         private void ListSupplierDetail(int id)
         {
             DataGrid_list.DataSource = (from sup_items in Program.provetex.suppliers_items
@@ -54,6 +54,7 @@ namespace Provetex.Supplier
                                             PRICE = sup_items.C_price
                                         }).ToList();
         }
+
         private void Form_load()
         {
             panel_choise.Visible = true;
@@ -61,10 +62,12 @@ namespace Provetex.Supplier
             Dropdown_list_article.Visible = true;
             Textbox_artcle.Visible = false;
         }
+
         private void item_form()
         {
 
         }
+
         //
         private void F_Details_Load(object sender, EventArgs e)
         {
@@ -138,7 +141,33 @@ namespace Provetex.Supplier
 
         private void Textbox_searsh_OnValueChanged(object sender, EventArgs e)
         {
-
+            string text = Textbox_searsh.Text;
+            if (firstDetail)
+            {
+                DataGrid_list.DataSource = (from sup in Program.provetex.suppliers
+                                            join sup_item in Program.provetex.suppliers_items on sup.C_id_supplier equals sup_item.C_supplier
+                                            where sup.C_name_supplier.Contains(text)
+                                            group sup by new { sup.C_id_supplier, sup.C_name_supplier } into g
+                                            select new
+                                            {
+                                                ID = g.Key.C_id_supplier,
+                                                FOURNISSEUR = g.Key.C_name_supplier,
+                                                NOMBRE_ARTICLE = g.Count(),
+                                            }
+                            ).ToList();
+            }
+            else
+            {
+                DataGrid_list.DataSource = (from sup_items in Program.provetex.suppliers_items
+                                            where sup_items.C_supplier == id_sup && sup_items.item.C_name_item.Contains(text)
+                                            select new
+                                            {
+                                                ID = sup_items.C_id_suppliers_items,
+                                                ID_ARTICLE = sup_items.C_item,
+                                                ARTICLE = sup_items.item.C_name_item,
+                                                PRICE = sup_items.C_price
+                                            }).ToList();
+            }
         }
 
         private void Button_add_Click(object sender, EventArgs e)
@@ -148,7 +177,9 @@ namespace Provetex.Supplier
             Button_add.Visible = false;
             Button_save.ButtonText = "Enregistrer";
         }
+
         Point point = new Point(36, 58);
+
         private void radioButton_new_CheckedChanged(object sender, EventArgs e)
         {
             Dropdown_list_article.Visible = false;
@@ -195,6 +226,7 @@ namespace Provetex.Supplier
                                   {
                                       i.C_id_item
                                   }).Single();
+                      
                         var item_sup = new suppliers_items
                         {
                             C_supplier = id_sup,
@@ -226,7 +258,6 @@ namespace Provetex.Supplier
                     Program.provetex.suppliers_items.Add(item_sup);
                     Program.provetex.SaveChanges();
                     MessageBox.Show("seccess");
-
                 }
             }
             else

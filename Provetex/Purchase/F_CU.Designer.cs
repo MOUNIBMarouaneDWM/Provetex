@@ -123,6 +123,7 @@
             this.num_qtt.Size = new System.Drawing.Size(209, 20);
             this.num_qtt.TabIndex = 27;
             this.num_qtt.ValueChanged += new System.EventHandler(this.num_qtt_ValueChanged);
+            this.num_qtt.Leave += new System.EventHandler(this.num_qtt_ValueChanged);
             // 
             // Textbox_pricePaid
             // 

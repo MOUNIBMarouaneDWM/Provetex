@@ -135,7 +135,7 @@
             this.Button_save.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Button_save.Name = "Button_save";
             this.Button_save.Size = new System.Drawing.Size(113, 46);
-            this.Button_save.TabIndex = 23;
+            this.Button_save.TabIndex = 4;
             this.Button_save.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Button_save.Click += new System.EventHandler(this.Button_save_Click);
             // 
@@ -161,7 +161,7 @@
             this.Button_back.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Button_back.Name = "Button_back";
             this.Button_back.Size = new System.Drawing.Size(113, 46);
-            this.Button_back.TabIndex = 24;
+            this.Button_back.TabIndex = 5;
             this.Button_back.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Button_back.Click += new System.EventHandler(this.Button_back_Click);
             // 

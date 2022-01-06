@@ -23,7 +23,7 @@ namespace Provetex.Supplier
         private void Refresh()
 #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
-           
+
             DataGrid_list.DataSource = Program.provetex.suppliers.Select(sup => new
             {
                 ID = sup.C_id_supplier,
@@ -83,14 +83,21 @@ namespace Provetex.Supplier
             int id = (int)DataGrid_list.Rows[index].Cells["ID"].Value;
             if (e.ColumnIndex == 0)
             {
-                MessageBox.Show("" + id);
                 DialogResult result = MessageBox.Show("Etes-vous sure?", "Confirmation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    var fourniss = Program.provetex.suppliers.Find(id);
-                    Program.provetex.suppliers.Remove(fourniss);
-                    Program.provetex.SaveChanges();
-                    Refresh();
+                    try
+                    {
+                        var fourniss = Program.provetex.suppliers.Find(id);
+                        Program.provetex.suppliers.Remove(fourniss);
+                        Program.provetex.SaveChanges();
+                        Refresh();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Se fournisseur avais des achat,Vous pouvez pas le suprimer");
+                    }
+
                 }
 
             }
