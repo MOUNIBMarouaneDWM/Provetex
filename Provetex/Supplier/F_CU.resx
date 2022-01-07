@@ -137,16 +137,17 @@
   <data name="Button_back.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHEAAAAuCAYAAAAfpvbyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHuSURBVHhe7ZutrsJAEEbvoyMQCAQCgahAIBAIHoAEwQMg
-        KhAIBAKBQCAQiL05Q7e5DVB3oTP5TrJJU35ET2Z22/36k4R7JDEAkhgASQyAJAZAEgPQKvF+v6eyLNNi
-        sUjT6TSNRqPU6/U0PjC41lzz+Xyettttut1ulZVn3krc7/f2RwhE5OFwSJfLpfpU/Ddca675brdLy+XS
-        XCDzFU8SMc6PZrNZul6v1Vnxbdq8NCTyxclk8ta4+D50yKIoGl2xIRHTEth9aLPMl5laIoYpVeGD1WqV
-        NpuNHZtEVqFMnJoD/YAzpr7z+fyQSAullQpfUIlUpEnkXoSlrPDF6XSyajSJ4/HYylL4gpba7/cfEgeD
-        QesTAdFdeLpjEjkQPpHEAEhiACQxAJIYAEkMgCQGQBIDIIkBkMQASGIAJDEAkhiAWiLbGWxrCH/UEolm
-        KFPqk1oiASmCUsIXbOSzoW8Sc1ZD+CJno0wirRSjmhd9kbNRJhHW67UN4YP8ohPUEqlCUsXH47E6I7oK
-        +WA6Z85F1RKBiTIHUkU3QSDFRpQ/05AIVCIic0RcdAfmPyrwr0B4kgi0VlarGGcFpHj/96Bl5vmPhcyr
-        aOlLiRmMs4QdDod2U6nx+UEmOL/o+45WicIHkhgASQyAJAZAEt2T0i8LNF710AkYAAAAAABJRU5ErkJg
-        gg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIwSURBVHhe7ZvBqwFRGMXfn25hoSwsLCwURZIkloooVkpR
+        FGVhoSiKpMnC4tO5M+Y9mWfJfF/nV6fUNLOYX3PvHXPuj+d5wugOJRoIJRoIJRoIJRoIJRrIW4nn81nG
+        47HUajUpFAqSyWQkkUgwHwjuNe55pVKR0Wgkx+Mx0hHyr8T5fO4uVK/XZTabyXq9ltPpJOQz4F7jni8W
+        C2m1Ws4FZEa5epEI441GQ8rlslwul+CS5Ntcr1dpNptSKpVkv98/OXuSCIG5XE4mk0lwKokbq9VK8vm8
+        bLfbaIl4Aikw/mCYxXz5IhFzIIZQooNutyu9Xu9XIlahmDg5B+rhdru5qW+z2fgSserBCojoYjgcSrvd
+        9iXiXQRLWaKL3W7nnkYnMZvNyuFwCA4RLWBITSaTvsRUKuXeQ4g+8O+Ok4gfRCeUaABKNAAlGoASDUCJ
+        BqBEA1CiASjRAJRoAEo0ACUagBINEErE5wx81iD6CCWimsFOqU5CiegyogpHdIEP+fig7ySiNYX2FNEF
+        6qWomTqJKKLCKOdFXVSrVZlOp75EpNPpSL/fDw6TuIP9MdjoBHehRHRP0SpGj5HEG/SDMXI+dkqFEhEI
+        RAWOzbf4AoHFYlGWy2Xo7UkiglUqRA4Gg+A0EhfQDcYT+Fcg8iIRwdCKZjGMYwXEev/3QJUU8x/2iaLk
+        HbXZNFLiIzCOJWw6nXYvlczng04wFjDYsR3lCHkrkdERSjQQSjQQSjQQSlQfT+4AFL0r475HvQAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
 </root>

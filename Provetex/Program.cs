@@ -45,8 +45,11 @@ namespace Provetex
         public static int? id_supplier;
         public static int? id_achat;
         public static int? id_item;
+        public static int? id_item_purchase;
+        public static int? id_suplier_purchase;
         public static int? id_sup_item;
         public static bool updateSupplier = false;
+        public static bool pannier = false;
         ////peparer la connection
         public static SqlConnection cnx = new SqlConnection(@"Data Source=.;Initial Catalog=Provetex;Integrated Security=True");
         public static SqlCommand cmd = new SqlCommand("", cnx);

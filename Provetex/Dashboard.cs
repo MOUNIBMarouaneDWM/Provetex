@@ -126,7 +126,8 @@ namespace Provetex
 
         private void button_list_articles_Click(object sender, EventArgs e)
         {
-
+            Form form = new Item.F_RD();
+            Panelaffiche(form);
         }
 
         private void button_list_achat_Click(object sender, EventArgs e)
