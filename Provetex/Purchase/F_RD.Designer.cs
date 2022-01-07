@@ -28,19 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_RD));
             this.DataGrid_list = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.detail = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Textbox_searsh = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox_sup = new System.Windows.Forms.ComboBox();
-            this.comboBox_item = new System.Windows.Forms.ComboBox();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.detail = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,19 +46,19 @@
             // 
             // DataGrid_list
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGrid_list.BackgroundColor = System.Drawing.Color.White;
             this.DataGrid_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGrid_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGrid_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DataGrid_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.delete,
@@ -76,15 +74,35 @@
             this.DataGrid_list.Size = new System.Drawing.Size(776, 388);
             this.DataGrid_list.TabIndex = 6;
             // 
+            // delete
+            // 
+            this.delete.HeaderText = "";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.Name = "delete";
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Width = 32;
+            // 
+            // detail
+            // 
+            this.detail.HeaderText = "";
+            this.detail.Image = ((System.Drawing.Image)(resources.GetObject("detail.Image")));
+            this.detail.Name = "detail";
+            this.detail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.detail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.detail.Width = 32;
+            // 
             // pictureBox2
             // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::Provetex.Properties.Resources.icons8_refresh_64;
-            this.pictureBox2.Location = new System.Drawing.Point(759, 143);
+            this.pictureBox2.Location = new System.Drawing.Point(759, 142);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Button_add
             // 
@@ -107,7 +125,7 @@
             this.Button_add.IconVisible = true;
             this.Button_add.IconZoom = 50D;
             this.Button_add.IsTab = false;
-            this.Button_add.Location = new System.Drawing.Point(602, 143);
+            this.Button_add.Location = new System.Drawing.Point(16, 142);
             this.Button_add.Name = "Button_add";
             this.Button_add.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.Button_add.OnHovercolor = System.Drawing.Color.RoyalBlue;
@@ -124,7 +142,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(202, 147);
+            this.pictureBox1.Location = new System.Drawing.Point(727, 146);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,7 +161,7 @@
             this.Textbox_searsh.LineIdleColor = System.Drawing.Color.Gray;
             this.Textbox_searsh.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.Textbox_searsh.LineThickness = 3;
-            this.Textbox_searsh.Location = new System.Drawing.Point(16, 143);
+            this.Textbox_searsh.Location = new System.Drawing.Point(541, 142);
             this.Textbox_searsh.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_searsh.Name = "Textbox_searsh";
             this.Textbox_searsh.Size = new System.Drawing.Size(211, 33);
@@ -160,48 +178,12 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Achat";
             // 
-            // comboBox_sup
-            // 
-            this.comboBox_sup.FormattingEnabled = true;
-            this.comboBox_sup.Location = new System.Drawing.Point(250, 149);
-            this.comboBox_sup.Name = "comboBox_sup";
-            this.comboBox_sup.Size = new System.Drawing.Size(170, 21);
-            this.comboBox_sup.TabIndex = 12;
-            // 
-            // comboBox_item
-            // 
-            this.comboBox_item.FormattingEnabled = true;
-            this.comboBox_item.Location = new System.Drawing.Point(426, 149);
-            this.comboBox_item.Name = "comboBox_item";
-            this.comboBox_item.Size = new System.Drawing.Size(170, 21);
-            this.comboBox_item.TabIndex = 13;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.Name = "delete";
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 32;
-            // 
-            // detail
-            // 
-            this.detail.HeaderText = "";
-            this.detail.Image = ((System.Drawing.Image)(resources.GetObject("detail.Image")));
-            this.detail.Name = "detail";
-            this.detail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.detail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.detail.Width = 32;
-            // 
             // F_RD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 580);
-            this.Controls.Add(this.comboBox_item);
-            this.Controls.Add(this.comboBox_sup);
             this.Controls.Add(this.DataGrid_list);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Button_add);
@@ -228,8 +210,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_searsh;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox_sup;
-        private System.Windows.Forms.ComboBox comboBox_item;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn detail;
     }

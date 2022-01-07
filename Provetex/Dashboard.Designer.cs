@@ -40,7 +40,6 @@
             this.button_add_fourni = new System.Windows.Forms.Button();
             this.panel_bar = new System.Windows.Forms.Panel();
             this.button_achats = new System.Windows.Forms.Button();
-            this.button_add_article = new System.Windows.Forms.Button();
             this.button_list_articles = new System.Windows.Forms.Button();
             this.button_credits = new System.Windows.Forms.Button();
             this.button_list_achat = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.panel_submenu_achat = new System.Windows.Forms.Panel();
             this.panel_Menu = new System.Windows.Forms.Panel();
             this.panel_submenu_articles = new System.Windows.Forms.Panel();
-            this.button_details_articles = new System.Windows.Forms.Button();
             this.panel_container = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.icon_close)).BeginInit();
             this.panel1.SuspendLayout();
@@ -238,23 +236,6 @@
             this.button_achats.UseVisualStyleBackColor = false;
             this.button_achats.Click += new System.EventHandler(this.button_achats_Click);
             // 
-            // button_add_article
-            // 
-            this.button_add_article.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_add_article.FlatAppearance.BorderSize = 0;
-            this.button_add_article.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_add_article.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add_article.ForeColor = System.Drawing.Color.White;
-            this.button_add_article.Location = new System.Drawing.Point(0, 45);
-            this.button_add_article.Name = "button_add_article";
-            this.button_add_article.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_add_article.Size = new System.Drawing.Size(183, 45);
-            this.button_add_article.TabIndex = 1;
-            this.button_add_article.Text = "ajouter";
-            this.button_add_article.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_add_article.UseMnemonic = false;
-            this.button_add_article.UseVisualStyleBackColor = true;
-            // 
             // button_list_articles
             // 
             this.button_list_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -364,32 +345,12 @@
             // panel_submenu_articles
             // 
             this.panel_submenu_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
-            this.panel_submenu_articles.Controls.Add(this.button_details_articles);
-            this.panel_submenu_articles.Controls.Add(this.button_add_article);
             this.panel_submenu_articles.Controls.Add(this.button_list_articles);
             this.panel_submenu_articles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_submenu_articles.Location = new System.Drawing.Point(0, 349);
             this.panel_submenu_articles.Name = "panel_submenu_articles";
             this.panel_submenu_articles.Size = new System.Drawing.Size(183, 135);
             this.panel_submenu_articles.TabIndex = 3;
-            // 
-            // button_details_articles
-            // 
-            this.button_details_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_details_articles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_details_articles.FlatAppearance.BorderSize = 0;
-            this.button_details_articles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_details_articles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_details_articles.ForeColor = System.Drawing.Color.White;
-            this.button_details_articles.Location = new System.Drawing.Point(0, 90);
-            this.button_details_articles.Name = "button_details_articles";
-            this.button_details_articles.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_details_articles.Size = new System.Drawing.Size(183, 44);
-            this.button_details_articles.TabIndex = 3;
-            this.button_details_articles.Text = "details";
-            this.button_details_articles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_details_articles.UseMnemonic = false;
-            this.button_details_articles.UseVisualStyleBackColor = false;
             // 
             // panel_container
             // 
@@ -434,7 +395,6 @@
         private System.Windows.Forms.Panel panel_submenu_fourni;
         private System.Windows.Forms.Panel panel_bar;
         private System.Windows.Forms.Button button_achats;
-        private System.Windows.Forms.Button button_add_article;
         private System.Windows.Forms.Button button_list_articles;
         private System.Windows.Forms.Button button_credits;
         private System.Windows.Forms.Button button_list_achat;
@@ -446,6 +406,5 @@
         private System.Windows.Forms.Button button_add_fourni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_details_fournis;
-        private System.Windows.Forms.Button button_details_articles;
     }
 }
