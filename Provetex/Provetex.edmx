@@ -5,6 +5,27 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ProvetexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bon">
+          <Key>
+            <PropertyRef Name="_serie_bon" />
+          </Key>
+          <Property Name="_serie_bon" Type="int" Nullable="false" />
+          <Property Name="_purchase" Type="int" />
+          <Property Name="_numero_bon" Type="int" />
+          <Property Name="_payement_type" Type="varchar" MaxLength="10" />
+          <Property Name="_prix_bon" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="created_at" Type="date" />
+          <Property Name="updated_at" Type="date" />
+        </EntityType>
+        <EntityType Name="chique">
+          <Key>
+            <PropertyRef Name="_numero_chique" />
+          </Key>
+          <Property Name="_numero_chique" Type="int" Nullable="false" />
+          <Property Name="_bon" Type="int" />
+          <Property Name="_prix_chique" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="_date_chique" Type="date" />
+        </EntityType>
         <EntityType Name="item">
           <Key>
             <PropertyRef Name="_id_item" />
@@ -19,10 +40,12 @@
           <Property Name="_id_purchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_suppliers_items" Type="int" Nullable="false" />
           <Property Name="_quantity" Type="int" Nullable="false" />
-          <Property Name="_paid" Type="money" Nullable="false" />
-          <Property Name="_rest" Type="money" />
+          <Property Name="_prix_HT" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="_prix_a_paid" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="_paid" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="_rest" Type="decimal" Precision="10" Scale="2" />
           <Property Name="created_at" Type="date" />
-          <Property Name="update_at" Type="date" />
+          <Property Name="updated_at" Type="date" />
         </EntityType>
         <EntityType Name="supplier">
           <Key>
@@ -34,7 +57,7 @@
           <Property Name="_adress_supplier" Type="varchar" MaxLength="50" />
           <Property Name="_email_supplier" Type="varchar" MaxLength="50" />
           <Property Name="created_at" Type="date" />
-          <Property Name="update_at" Type="date" />
+          <Property Name="updated_at" Type="date" />
         </EntityType>
         <EntityType Name="suppliers_items">
           <Key>
@@ -43,19 +66,10 @@
           <Property Name="_id_suppliers_items" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="_supplier" Type="int" />
           <Property Name="_item" Type="int" />
-          <Property Name="_price" Type="money" Nullable="false" />
+          <Property Name="_unite" Type="varchar" MaxLength="5" />
+          <Property Name="_price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="created_at" Type="date" />
-          <Property Name="update_at" Type="date" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="updated_at" Type="date" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -69,7 +83,31 @@
           <Property Name="_repence" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="_favorite_date" Type="date" Nullable="false" />
         </EntityType>
-        <Association Name="FK__purchase___suppl__5070F446">
+        <Association Name="FK__bon___purchase__3A81B327">
+          <End Role="purchase" Type="Self.purchase" Multiplicity="0..1" />
+          <End Role="bon" Type="Self.bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purchase">
+              <PropertyRef Name="_id_purchase" />
+            </Principal>
+            <Dependent Role="bon">
+              <PropertyRef Name="_purchase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chique___bon__3D5E1FD2">
+          <End Role="bon" Type="Self.bon" Multiplicity="0..1" />
+          <End Role="chique" Type="Self.chique" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bon">
+              <PropertyRef Name="_serie_bon" />
+            </Principal>
+            <Dependent Role="chique">
+              <PropertyRef Name="_bon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase___suppl__34C8D9D1">
           <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="1" />
           <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
           <ReferentialConstraint>
@@ -81,7 +119,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__suppliers___item__4BAC3F29">
+        <Association Name="FK__suppliers___item__300424B4">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +131,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__suppliers___supp__4AB81AF0">
+        <Association Name="FK__suppliers___supp__2F10007B">
           <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
           <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,21 +144,30 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ProvetexModelStoreContainer">
+          <EntitySet Name="bon" EntityType="Self.bon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chique" EntityType="Self.chique" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="purchase" EntityType="Self.purchase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="suppliers_items" EntityType="Self.suppliers_items" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__purchase___suppl__5070F446" Association="Self.FK__purchase___suppl__5070F446">
+          <AssociationSet Name="FK__bon___purchase__3A81B327" Association="Self.FK__bon___purchase__3A81B327">
+            <End Role="purchase" EntitySet="purchase" />
+            <End Role="bon" EntitySet="bon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chique___bon__3D5E1FD2" Association="Self.FK__chique___bon__3D5E1FD2">
+            <End Role="bon" EntitySet="bon" />
+            <End Role="chique" EntitySet="chique" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase___suppl__34C8D9D1" Association="Self.FK__purchase___suppl__34C8D9D1">
             <End Role="suppliers_items" EntitySet="suppliers_items" />
             <End Role="purchase" EntitySet="purchase" />
           </AssociationSet>
-          <AssociationSet Name="FK__suppliers___item__4BAC3F29" Association="Self.FK__suppliers___item__4BAC3F29">
+          <AssociationSet Name="FK__suppliers___item__300424B4" Association="Self.FK__suppliers___item__300424B4">
             <End Role="item" EntitySet="item" />
             <End Role="suppliers_items" EntitySet="suppliers_items" />
           </AssociationSet>
-          <AssociationSet Name="FK__suppliers___supp__4AB81AF0" Association="Self.FK__suppliers___supp__4AB81AF0">
+          <AssociationSet Name="FK__suppliers___supp__2F10007B" Association="Self.FK__suppliers___supp__2F10007B">
             <End Role="supplier" EntitySet="supplier" />
             <End Role="suppliers_items" EntitySet="suppliers_items" />
           </AssociationSet>
@@ -130,13 +177,37 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProvetexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bon">
+          <Key>
+            <PropertyRef Name="C_serie_bon" />
+          </Key>
+          <Property Name="C_serie_bon" Type="Int32" Nullable="false" />
+          <Property Name="C_purchase" Type="Int32" />
+          <Property Name="C_numero_bon" Type="Int32" />
+          <Property Name="C_payement_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="C_prix_bon" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="created_at" Type="DateTime" Precision="0" />
+          <Property Name="updated_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="purchase" Relationship="Self.FK__bon___purchase__3A81B327" FromRole="bon" ToRole="purchase" />
+          <NavigationProperty Name="chiques" Relationship="Self.FK__chique___bon__3D5E1FD2" FromRole="bon" ToRole="chique" />
+        </EntityType>
+        <EntityType Name="chique">
+          <Key>
+            <PropertyRef Name="C_numero_chique" />
+          </Key>
+          <Property Name="C_numero_chique" Type="Int32" Nullable="false" />
+          <Property Name="C_bon" Type="Int32" />
+          <Property Name="C_prix_chique" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="C_date_chique" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="bon" Relationship="Self.FK__chique___bon__3D5E1FD2" FromRole="chique" ToRole="bon" />
+        </EntityType>
         <EntityType Name="item">
           <Key>
             <PropertyRef Name="C_id_item" />
           </Key>
           <Property Name="C_id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_name_item" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__suppliers___item__4BAC3F29" FromRole="item" ToRole="suppliers_items" />
+          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__suppliers___item__300424B4" FromRole="item" ToRole="suppliers_items" />
         </EntityType>
         <EntityType Name="purchase">
           <Key>
@@ -145,11 +216,14 @@
           <Property Name="C_id_purchase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_suppliers_items" Type="Int32" Nullable="false" />
           <Property Name="C_quantity" Type="Int32" Nullable="false" />
-          <Property Name="C_paid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="C_rest" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="C_prix_HT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="C_prix_a_paid" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="C_paid" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="C_rest" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="created_at" Type="DateTime" Precision="0" />
-          <Property Name="update_at" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__purchase___suppl__5070F446" FromRole="purchase" ToRole="suppliers_items" />
+          <Property Name="updated_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="bons" Relationship="Self.FK__bon___purchase__3A81B327" FromRole="purchase" ToRole="bon" />
+          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__purchase___suppl__34C8D9D1" FromRole="purchase" ToRole="suppliers_items" />
         </EntityType>
         <EntityType Name="supplier">
           <Key>
@@ -161,8 +235,8 @@
           <Property Name="C_adress_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="C_email_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="created_at" Type="DateTime" Precision="0" />
-          <Property Name="update_at" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__suppliers___supp__4AB81AF0" FromRole="supplier" ToRole="suppliers_items" />
+          <Property Name="updated_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="suppliers_items" Relationship="Self.FK__suppliers___supp__2F10007B" FromRole="supplier" ToRole="suppliers_items" />
         </EntityType>
         <EntityType Name="suppliers_items">
           <Key>
@@ -171,22 +245,13 @@
           <Property Name="C_id_suppliers_items" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="C_supplier" Type="Int32" />
           <Property Name="C_item" Type="Int32" />
-          <Property Name="C_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="C_unite" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="C_price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="created_at" Type="DateTime" Precision="0" />
-          <Property Name="update_at" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="item" Relationship="Self.FK__suppliers___item__4BAC3F29" FromRole="suppliers_items" ToRole="item" />
-          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase___suppl__5070F446" FromRole="suppliers_items" ToRole="purchase" />
-          <NavigationProperty Name="supplier" Relationship="Self.FK__suppliers___supp__4AB81AF0" FromRole="suppliers_items" ToRole="supplier" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="updated_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="item" Relationship="Self.FK__suppliers___item__300424B4" FromRole="suppliers_items" ToRole="item" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase___suppl__34C8D9D1" FromRole="suppliers_items" ToRole="purchase" />
+          <NavigationProperty Name="supplier" Relationship="Self.FK__suppliers___supp__2F10007B" FromRole="suppliers_items" ToRole="supplier" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -200,7 +265,31 @@
           <Property Name="C_repence" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="C_favorite_date" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
-        <Association Name="FK__suppliers___item__4BAC3F29">
+        <Association Name="FK__bon___purchase__3A81B327">
+          <End Role="purchase" Type="Self.purchase" Multiplicity="0..1" />
+          <End Role="bon" Type="Self.bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purchase">
+              <PropertyRef Name="C_id_purchase" />
+            </Principal>
+            <Dependent Role="bon">
+              <PropertyRef Name="C_purchase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chique___bon__3D5E1FD2">
+          <End Role="bon" Type="Self.bon" Multiplicity="0..1" />
+          <End Role="chique" Type="Self.chique" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bon">
+              <PropertyRef Name="C_serie_bon" />
+            </Principal>
+            <Dependent Role="chique">
+              <PropertyRef Name="C_bon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__suppliers___item__300424B4">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
           <ReferentialConstraint>
@@ -212,7 +301,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__purchase___suppl__5070F446">
+        <Association Name="FK__purchase___suppl__34C8D9D1">
           <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="1" />
           <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
           <ReferentialConstraint>
@@ -224,7 +313,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__suppliers___supp__4AB81AF0">
+        <Association Name="FK__suppliers___supp__2F10007B">
           <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
           <End Role="suppliers_items" Type="Self.suppliers_items" Multiplicity="*" />
           <ReferentialConstraint>
@@ -237,21 +326,30 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ProvetexEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bons" EntityType="Self.bon" />
+          <EntitySet Name="chiques" EntityType="Self.chique" />
           <EntitySet Name="items" EntityType="Self.item" />
           <EntitySet Name="purchases" EntityType="Self.purchase" />
           <EntitySet Name="suppliers" EntityType="Self.supplier" />
           <EntitySet Name="suppliers_items" EntityType="Self.suppliers_items" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__suppliers___item__4BAC3F29" Association="Self.FK__suppliers___item__4BAC3F29">
+          <AssociationSet Name="FK__bon___purchase__3A81B327" Association="Self.FK__bon___purchase__3A81B327">
+            <End Role="purchase" EntitySet="purchases" />
+            <End Role="bon" EntitySet="bons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chique___bon__3D5E1FD2" Association="Self.FK__chique___bon__3D5E1FD2">
+            <End Role="bon" EntitySet="bons" />
+            <End Role="chique" EntitySet="chiques" />
+          </AssociationSet>
+          <AssociationSet Name="FK__suppliers___item__300424B4" Association="Self.FK__suppliers___item__300424B4">
             <End Role="item" EntitySet="items" />
             <End Role="suppliers_items" EntitySet="suppliers_items" />
           </AssociationSet>
-          <AssociationSet Name="FK__purchase___suppl__5070F446" Association="Self.FK__purchase___suppl__5070F446">
+          <AssociationSet Name="FK__purchase___suppl__34C8D9D1" Association="Self.FK__purchase___suppl__34C8D9D1">
             <End Role="suppliers_items" EntitySet="suppliers_items" />
             <End Role="purchase" EntitySet="purchases" />
           </AssociationSet>
-          <AssociationSet Name="FK__suppliers___supp__4AB81AF0" Association="Self.FK__suppliers___supp__4AB81AF0">
+          <AssociationSet Name="FK__suppliers___supp__2F10007B" Association="Self.FK__suppliers___supp__2F10007B">
             <End Role="supplier" EntitySet="suppliers" />
             <End Role="suppliers_items" EntitySet="suppliers_items" />
           </AssociationSet>
@@ -262,6 +360,29 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ProvetexModelStoreContainer" CdmEntityContainer="ProvetexEntities">
+          <EntitySetMapping Name="bons">
+            <EntityTypeMapping TypeName="ProvetexModel.bon">
+              <MappingFragment StoreEntitySet="bon">
+                <ScalarProperty Name="C_serie_bon" ColumnName="_serie_bon" />
+                <ScalarProperty Name="C_purchase" ColumnName="_purchase" />
+                <ScalarProperty Name="C_numero_bon" ColumnName="_numero_bon" />
+                <ScalarProperty Name="C_payement_type" ColumnName="_payement_type" />
+                <ScalarProperty Name="C_prix_bon" ColumnName="_prix_bon" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chiques">
+            <EntityTypeMapping TypeName="ProvetexModel.chique">
+              <MappingFragment StoreEntitySet="chique">
+                <ScalarProperty Name="C_numero_chique" ColumnName="_numero_chique" />
+                <ScalarProperty Name="C_bon" ColumnName="_bon" />
+                <ScalarProperty Name="C_prix_chique" ColumnName="_prix_chique" />
+                <ScalarProperty Name="C_date_chique" ColumnName="_date_chique" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="items">
             <EntityTypeMapping TypeName="ProvetexModel.item">
               <MappingFragment StoreEntitySet="item">
@@ -276,10 +397,12 @@
                 <ScalarProperty Name="C_id_purchase" ColumnName="_id_purchase" />
                 <ScalarProperty Name="C_suppliers_items" ColumnName="_suppliers_items" />
                 <ScalarProperty Name="C_quantity" ColumnName="_quantity" />
+                <ScalarProperty Name="C_prix_HT" ColumnName="_prix_HT" />
+                <ScalarProperty Name="C_prix_a_paid" ColumnName="_prix_a_paid" />
                 <ScalarProperty Name="C_paid" ColumnName="_paid" />
                 <ScalarProperty Name="C_rest" ColumnName="_rest" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="update_at" ColumnName="update_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -292,7 +415,7 @@
                 <ScalarProperty Name="C_adress_supplier" ColumnName="_adress_supplier" />
                 <ScalarProperty Name="C_email_supplier" ColumnName="_email_supplier" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="update_at" ColumnName="update_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -302,20 +425,10 @@
                 <ScalarProperty Name="C_id_suppliers_items" ColumnName="_id_suppliers_items" />
                 <ScalarProperty Name="C_supplier" ColumnName="_supplier" />
                 <ScalarProperty Name="C_item" ColumnName="_item" />
+                <ScalarProperty Name="C_unite" ColumnName="_unite" />
                 <ScalarProperty Name="C_price" ColumnName="_price" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="update_at" ColumnName="update_at" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ProvetexModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

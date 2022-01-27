@@ -129,6 +129,12 @@
     <Compile Include="Auth\F_register.Designer.cs">
       <DependentUpon>F_register.cs</DependentUpon>
     </Compile>
+    <Compile Include="bon.cs">
+      <DependentUpon>provetex.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chique.cs">
+      <DependentUpon>provetex.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +154,7 @@
       <DependentUpon>F_loading.cs</DependentUpon>
     </Compile>
     <Compile Include="item.cs">
-      <DependentUpon>Provetex.tt</DependentUpon>
+      <DependentUpon>provetex.tt</DependentUpon>
     </Compile>
     <Compile Include="Item\F_RD.cs">
       <SubType>Form</SubType>
@@ -158,23 +164,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Provetex.Context.cs">
+    <Compile Include="provetex.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Provetex.Context.tt</DependentUpon>
+      <DependentUpon>provetex.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Provetex.cs">
+    <Compile Include="provetex.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Provetex.tt</DependentUpon>
+      <DependentUpon>provetex.tt</DependentUpon>
     </Compile>
-    <Compile Include="Provetex.Designer.cs">
+    <Compile Include="provetex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Provetex.edmx</DependentUpon>
+      <DependentUpon>provetex.edmx</DependentUpon>
     </Compile>
     <Compile Include="purchase.cs">
-      <DependentUpon>Provetex.tt</DependentUpon>
+      <DependentUpon>provetex.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase\F_Bon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\F_Bon.Designer.cs">
+      <DependentUpon>F_Bon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase\F_Chiques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\F_Chiques.Designer.cs">
+      <DependentUpon>F_Chiques.cs</DependentUpon>
     </Compile>
     <Compile Include="Purchase\F_CU.cs">
       <SubType>Form</SubType>
@@ -189,10 +207,10 @@
       <DependentUpon>F_RD.cs</DependentUpon>
     </Compile>
     <Compile Include="supplier.cs">
-      <DependentUpon>Provetex.tt</DependentUpon>
+      <DependentUpon>provetex.tt</DependentUpon>
     </Compile>
     <Compile Include="suppliers_items.cs">
-      <DependentUpon>Provetex.tt</DependentUpon>
+      <DependentUpon>provetex.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier\F_CU.cs">
       <SubType>Form</SubType>
@@ -212,11 +230,8 @@
     <Compile Include="Supplier\F_RD.Designer.cs">
       <DependentUpon>F_RD.cs</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Provetex.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Provetex.tt</DependentUpon>
+      <DependentUpon>provetex.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Auth\F_forgot_password.resx">
       <DependentUpon>F_forgot_password.cs</DependentUpon>
@@ -271,13 +286,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="Provetex.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Provetex.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Provetex.edmx.diagram">
-      <DependentUpon>Provetex.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -285,20 +293,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Provetex.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Provetex.edmx</DependentUpon>
-      <LastGenOutput>Provetex.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Provetex.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Provetex.edmx</DependentUpon>
-      <LastGenOutput>Provetex.cs</LastGenOutput>
-    </Content>
+    <EntityDeploy Include="provetex.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>provetex.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="provetex.edmx.diagram">
+      <DependentUpon>provetex.edmx</DependentUpon>
+    </None>
+    <None Include="Resources\icons8_shopping_cart_16.png" />
     <None Include="Resources\icons8_refresh_64.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="provetex.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>provetex.edmx</DependentUpon>
+      <LastGenOutput>provetex.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="provetex.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>provetex.edmx</DependentUpon>
+      <LastGenOutput>provetex.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,12 +20,11 @@ namespace Provetex
             Application.SetCompatibleTextRenderingDefault(false);
             var users = (from i in provetex.Users
                          select i).ToList();
-            //test
-            //if (users.Count == 0)
-            //    Application.Run(new Auth.F_register());
-            //else
-            //    Application.Run(new Auth.F_login());
-            Application.Run(new Dashboard());
+            //strart app
+            if (users.Count == 0)
+                Application.Run(new Auth.F_register());
+            else
+                Application.Run(new Auth.F_login());
         }
 
         //Entity Provetex
@@ -50,18 +49,21 @@ namespace Provetex
         public static int? id_sup_item;
         public static bool updateSupplier = false;
         public static bool pannier = false;
+        public static bool FirstPurchase = true;
+        public static bool UpdatePurchase = false;
+        public static bool AddBon = false;
         ////peparer la connection
         public static SqlConnection cnx = new SqlConnection(@"Data Source=.;Initial Catalog=Provetex;Integrated Security=True");
         public static SqlCommand cmd = new SqlCommand("", cnx);
         public static SqlDataReader dr;
         // connection 
-        public static void cnnx()
+        public static void Cnnx()
         {
             if (cnx.State.ToString() != "Open")
                 cnx.Open();
         }
         // deconnection
-        public static void deconnection()
+        public static void Deconnection()
         {
             if (cnx.State != ConnectionState.Closed)
                 cnx.Close();
@@ -69,29 +71,29 @@ namespace Provetex
         //Executer MAJ
         public static void ExecuterMaj(string req)
         {
-            cnnx();
+            Cnnx();
             cmd.CommandText = req;
             cmd.ExecuteNonQuery();
-            deconnection();
+            Deconnection();
         }
         //Executer Selection 
         public static DataTable ExecuterSelection(string req)
         {
-            cnnx();
+            Cnnx();
             cmd.CommandText = req;
             DataTable dt = new DataTable();
             dr = cmd.ExecuteReader();
             dt.Load(dr);
-            deconnection();
+            Deconnection();
             return dt;
         }
         //Executer scalaire
         public static string ExecuterScalaire(string req)
         {
-            cnnx();
+            Cnnx();
             cmd.CommandText = req;
             string affiFinal = cmd.ExecuteScalar().ToString();
-            deconnection();
+            Deconnection();
             return affiFinal;
         }
     }

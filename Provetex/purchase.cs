@@ -14,14 +14,24 @@ namespace Provetex
     
     public partial class purchase
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public purchase()
+        {
+            this.bons = new HashSet<bon>();
+        }
+    
         public int C_id_purchase { get; set; }
         public int C_suppliers_items { get; set; }
         public int C_quantity { get; set; }
+        public decimal C_prix_HT { get; set; }
+        public decimal C_prix_a_paid { get; set; }
         public decimal C_paid { get; set; }
         public Nullable<decimal> C_rest { get; set; }
         public Nullable<System.DateTime> created_at { get; set; }
-        public Nullable<System.DateTime> update_at { get; set; }
+        public Nullable<System.DateTime> updated_at { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bon> bons { get; set; }
         public virtual suppliers_items suppliers_items { get; set; }
     }
 }

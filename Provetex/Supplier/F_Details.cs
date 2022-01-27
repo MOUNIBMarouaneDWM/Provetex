@@ -63,7 +63,7 @@ namespace Provetex.Supplier
             Textbox_artcle.Visible = false;
         }
 
-        private void item_form()
+        private void Item_form()
         {
 
         }
@@ -133,7 +133,7 @@ namespace Provetex.Supplier
             }
         }
 
-        private void pictureBox_back_Click(object sender, EventArgs e)
+        private void PictureBox_back_Click(object sender, EventArgs e)
         {
             ListSuppliers();
             Button_add.Visible = false;
@@ -180,7 +180,7 @@ namespace Provetex.Supplier
 
         Point point = new Point(36, 58);
 
-        private void radioButton_new_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_new_CheckedChanged(object sender, EventArgs e)
         {
             Dropdown_list_article.Visible = false;
             Textbox_artcle.Visible = true;
@@ -189,7 +189,7 @@ namespace Provetex.Supplier
             Textbox_artcle.Text = "";
         }
 
-        private void radioButton_notNew_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_notNew_CheckedChanged(object sender, EventArgs e)
         {
             Textbox_artcle.Visible = false;
             Dropdown_list_article.Visible = true;
@@ -233,7 +233,7 @@ namespace Provetex.Supplier
                             C_item = id.C_id_item,
                             C_price = prix,
                             created_at = DateTime.Now,
-                            update_at = DateTime.Now
+                            updated_at = DateTime.Now
                         };
                         Program.provetex.suppliers_items.Add(item_sup);
                         Program.provetex.SaveChanges();
@@ -253,7 +253,7 @@ namespace Provetex.Supplier
                         C_item = iditem,
                         C_price = prix,
                         created_at = DateTime.Now,
-                        update_at = DateTime.Now
+                        updated_at = DateTime.Now
                     };
                     Program.provetex.suppliers_items.Add(item_sup);
                     Program.provetex.SaveChanges();
@@ -264,7 +264,7 @@ namespace Provetex.Supplier
             {
                 var item = Program.provetex.suppliers_items.Find(Program.id_sup_item);
                 item.C_price = decimal.Parse(Textbox_prix.Text);
-                item.update_at = DateTime.Now;
+                item.updated_at = DateTime.Now;
                 Program.provetex.SaveChanges();
                 MessageBox.Show("update" + Program.id_sup_item.Value);
             }

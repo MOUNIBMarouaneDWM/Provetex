@@ -52,10 +52,18 @@ namespace Provetex.Item
                 DialogResult result = MessageBox.Show("Etes-vous sure?", "Confirmation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
+                    try
+                    {
+
                     var fourniss = Program.provetex.suppliers_items.Find(id);
                     Program.provetex.suppliers_items.Remove(fourniss);
                     Program.provetex.SaveChanges();
                     Refresh();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("You cant delete this line");
+                    }
                 }
 
             }
@@ -161,9 +169,10 @@ namespace Provetex.Item
                         {
                             C_supplier = id_sup,
                             C_item = id.C_id_item,
+                            C_unite = comboBox_unite.selectedValue,
                             C_price = prix,
                             created_at = DateTime.Now,
-                            update_at = DateTime.Now
+                            updated_at = DateTime.Now
                         };
                         Program.provetex.suppliers_items.Add(item_sup);
                         Program.provetex.SaveChanges();
@@ -181,9 +190,10 @@ namespace Provetex.Item
                     {
                         C_supplier = id_sup,
                         C_item = iditem,
+                        C_unite = comboBox_unite.selectedValue,
                         C_price = prix,
                         created_at = DateTime.Now,
-                        update_at = DateTime.Now
+                        updated_at = DateTime.Now
                     };
                     Program.provetex.suppliers_items.Add(item_sup);
                     Program.provetex.SaveChanges();
@@ -194,7 +204,7 @@ namespace Provetex.Item
             {
                 var item = Program.provetex.suppliers_items.Find(Program.id_sup_item);
                 item.C_price = decimal.Parse(Textbox_prix.Text);
-                item.update_at = DateTime.Now;
+                item.updated_at = DateTime.Now;
                 Program.provetex.SaveChanges();
                 MessageBox.Show("update" + Program.id_sup_item.Value);
             }
@@ -208,6 +218,16 @@ namespace Provetex.Item
             Button_add.Visible = true;
             Textbox_artcle.Text = Textbox_prix.Text = "";
             panel_form.Visible = false;
+        }
+
+        private void panel_form_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Btn_refresh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

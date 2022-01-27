@@ -59,11 +59,11 @@
             this.Card_check.Controls.Add(this.Datepicker_favorit);
             this.Card_check.Controls.Add(this.Textbox_answer);
             this.Card_check.LeftSahddow = false;
-            this.Card_check.Location = new System.Drawing.Point(380, 61);
+            this.Card_check.Location = new System.Drawing.Point(356, 61);
             this.Card_check.Name = "Card_check";
             this.Card_check.RightSahddow = true;
             this.Card_check.ShadowDepth = 20;
-            this.Card_check.Size = new System.Drawing.Size(294, 265);
+            this.Card_check.Size = new System.Drawing.Size(318, 265);
             this.Card_check.TabIndex = 16;
             // 
             // Button_confirme
@@ -268,6 +268,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_forgot_password";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_forgot_password";
             this.Load += new System.EventHandler(this.F_forgot_password_Load);
             this.Card_check.ResumeLayout(false);

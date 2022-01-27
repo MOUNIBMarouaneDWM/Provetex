@@ -4,16 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5c951b15179641a0a486afc2a327a6bb" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="ProvetexModel.item" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="fe84d9363e9a434580a02f0330c5be6a" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="ProvetexModel.bon" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvetexModel.chique" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvetexModel.item" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ProvetexModel.purchase" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProvetexModel.supplier" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProvetexModel.suppliers_items" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProvetexModel.sysdiagram" Width="1.5" PointX="7.625" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProvetexModel.User" Width="1.5" PointX="4.75" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="ProvetexModel.FK__suppliers___item__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="ProvetexModel.FK__purchase___suppl__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="ProvetexModel.FK__suppliers___supp__4AB81AF0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProvetexModel.supplier" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvetexModel.suppliers_items" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProvetexModel.User" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="ProvetexModel.FK__bon___purchase__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvetexModel.FK__chique___bon__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvetexModel.FK__suppliers___item__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvetexModel.FK__purchase___suppl__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProvetexModel.FK__suppliers___supp__2F10007B" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

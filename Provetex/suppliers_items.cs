@@ -23,9 +23,10 @@ namespace Provetex
         public int C_id_suppliers_items { get; set; }
         public Nullable<int> C_supplier { get; set; }
         public Nullable<int> C_item { get; set; }
+        public string C_unite { get; set; }
         public decimal C_price { get; set; }
         public Nullable<System.DateTime> created_at { get; set; }
-        public Nullable<System.DateTime> update_at { get; set; }
+        public Nullable<System.DateTime> updated_at { get; set; }
     
         public virtual item item { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -130,20 +130,9 @@
         ubMqJgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="add.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="shop.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="detail.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="detail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAKZJREFUOE9j
-        EBERkZSQkLgKxP9JxFdAehmAjAQgfiApKWlMCgbpAellEBcXTwYybjCQCEB6QHqpawCQNgPyF0PZ04B4
-        IxZsBpXHaoAWENdD2SVA3IUFa0HlaeAFaWlpA2AITwSxgXQrUHweOgapAckD2TQwgBSA1QAgTVkgAmnK
-        opEUQD0DgAxQZnoM5LiQgkF6QHpB2VkKyLgDxNiyLD58R0RERBIAqY6Ncfe3cwIAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="Btn_refresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAl5JREFUaEPt

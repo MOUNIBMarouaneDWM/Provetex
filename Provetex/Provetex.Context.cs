@@ -24,17 +24,13 @@ namespace Provetex
         {
             throw new UnintentionalCodeFirstException();
         }
-
-        internal object SqlQuery(string v)
-        {
-            throw new NotImplementedException();
-        }
-
+    
+        public virtual DbSet<bon> bons { get; set; }
+        public virtual DbSet<chique> chiques { get; set; }
         public virtual DbSet<item> items { get; set; }
         public virtual DbSet<purchase> purchases { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }
         public virtual DbSet<suppliers_items> suppliers_items { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

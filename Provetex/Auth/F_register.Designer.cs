@@ -155,7 +155,7 @@
             this.Dropdown_question.Name = "Dropdown_question";
             this.Dropdown_question.NomalColor = System.Drawing.Color.RoyalBlue;
             this.Dropdown_question.onHoverColor = System.Drawing.Color.RoyalBlue;
-            this.Dropdown_question.selectedIndex = -1;
+            this.Dropdown_question.selectedIndex = 1;
             this.Dropdown_question.Size = new System.Drawing.Size(359, 33);
             this.Dropdown_question.TabIndex = 6;
             this.Dropdown_question.Tag = "";
@@ -351,6 +351,7 @@
             this.Controls.Add(this.Button_Register);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_register";
             this.Load += new System.EventHandler(this.F_register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.icon_close)).EndInit();

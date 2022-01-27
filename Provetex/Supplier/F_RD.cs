@@ -32,7 +32,7 @@ namespace Provetex.Supplier
                 PHONE = sup.C_phone_supplier,
                 EMAIL = sup.C_email_supplier,
                 AJOUTER = sup.created_at,
-                UPDATE = sup.update_at
+                UPDATE = sup.updated_at
             }).ToList();
             DataGrid_list.Columns["ID"].Visible = false;
 
@@ -60,7 +60,7 @@ namespace Provetex.Supplier
                                                                            PHONE = sup.C_phone_supplier,
                                                                            EMAIL = sup.C_email_supplier,
                                                                            AJOUTER = sup.created_at,
-                                                                           UPDATE = sup.update_at
+                                                                           UPDATE = sup.updated_at
                                                                        }).ToList();
             }
         }

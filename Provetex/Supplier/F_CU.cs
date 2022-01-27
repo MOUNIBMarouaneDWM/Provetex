@@ -29,7 +29,7 @@ namespace Provetex.Supplier
                     C_email_supplier = Textbox_email.Text,
                     C_adress_supplier = Textbox_adrs.Text,
                     created_at = DateTime.Today,
-                    update_at = DateTime.Today
+                    updated_at = DateTime.Today
                 };
                 Program.provetex.suppliers.Add(supplier);
                 Program.provetex.SaveChanges();
@@ -42,14 +42,14 @@ namespace Provetex.Supplier
             }
 
         }
-        private void Update()
+        private new void Update()
         {
             var supplier = Program.provetex.suppliers.Find(Program.id_supplier);
             supplier.C_name_supplier = Textbox_name.Text;
             supplier.C_adress_supplier = Textbox_adrs.Text;
             supplier.C_email_supplier = Textbox_email.Text;
             supplier.C_phone_supplier = Textbox_phone.Text;
-            supplier.update_at = DateTime.Today;
+            supplier.updated_at = DateTime.Today;
             Program.provetex.SaveChanges();
             Program.updateSupplier = false;
             this.Close();
@@ -61,7 +61,7 @@ namespace Provetex.Supplier
                 Button_save.ButtonText = "save";
             else
             {
-                Button_save.ButtonText = "update";
+                Button_save.ButtonText = "Update";
                 var supplier = Program.provetex.suppliers.Find(Program.id_supplier);
                 Textbox_name.Text = supplier.C_name_supplier;
                 Textbox_adrs.Text = supplier.C_adress_supplier;

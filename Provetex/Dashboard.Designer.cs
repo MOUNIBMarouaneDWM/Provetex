@@ -43,11 +43,11 @@
             this.button_list_articles = new System.Windows.Forms.Button();
             this.button_credits = new System.Windows.Forms.Button();
             this.button_list_achat = new System.Windows.Forms.Button();
-            this.button_admin = new System.Windows.Forms.Button();
             this.panel_submenu_achat = new System.Windows.Forms.Panel();
             this.panel_Menu = new System.Windows.Forms.Panel();
             this.panel_submenu_articles = new System.Windows.Forms.Panel();
             this.panel_container = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.icon_close)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel_submenu_fourni.SuspendLayout();
@@ -83,7 +83,7 @@
             this.button_Fournisseur.Location = new System.Drawing.Point(0, 124);
             this.button_Fournisseur.Name = "button_Fournisseur";
             this.button_Fournisseur.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_Fournisseur.Size = new System.Drawing.Size(183, 45);
+            this.button_Fournisseur.Size = new System.Drawing.Size(200, 45);
             this.button_Fournisseur.TabIndex = 0;
             this.button_Fournisseur.Text = "Fournisseur";
             this.button_Fournisseur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -99,7 +99,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 124);
+            this.panel1.Size = new System.Drawing.Size(200, 124);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -123,7 +123,7 @@
             this.button_list_fourni.Location = new System.Drawing.Point(0, 0);
             this.button_list_fourni.Name = "button_list_fourni";
             this.button_list_fourni.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_list_fourni.Size = new System.Drawing.Size(183, 45);
+            this.button_list_fourni.Size = new System.Drawing.Size(200, 45);
             this.button_list_fourni.TabIndex = 0;
             this.button_list_fourni.Text = "list";
             this.button_list_fourni.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,7 +145,7 @@
             this.button_articles.Location = new System.Drawing.Point(0, 304);
             this.button_articles.Name = "button_articles";
             this.button_articles.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_articles.Size = new System.Drawing.Size(183, 45);
+            this.button_articles.Size = new System.Drawing.Size(200, 45);
             this.button_articles.TabIndex = 2;
             this.button_articles.Text = "Articles";
             this.button_articles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,7 +162,7 @@
             this.panel_submenu_fourni.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_submenu_fourni.Location = new System.Drawing.Point(0, 169);
             this.panel_submenu_fourni.Name = "panel_submenu_fourni";
-            this.panel_submenu_fourni.Size = new System.Drawing.Size(183, 135);
+            this.panel_submenu_fourni.Size = new System.Drawing.Size(200, 135);
             this.panel_submenu_fourni.TabIndex = 1;
             // 
             // button_details_fournis
@@ -176,7 +176,7 @@
             this.button_details_fournis.Location = new System.Drawing.Point(0, 90);
             this.button_details_fournis.Name = "button_details_fournis";
             this.button_details_fournis.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_details_fournis.Size = new System.Drawing.Size(183, 45);
+            this.button_details_fournis.Size = new System.Drawing.Size(200, 45);
             this.button_details_fournis.TabIndex = 3;
             this.button_details_fournis.Text = "details";
             this.button_details_fournis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,7 +195,7 @@
             this.button_add_fourni.Location = new System.Drawing.Point(0, 45);
             this.button_add_fourni.Name = "button_add_fourni";
             this.button_add_fourni.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_add_fourni.Size = new System.Drawing.Size(183, 45);
+            this.button_add_fourni.Size = new System.Drawing.Size(200, 45);
             this.button_add_fourni.TabIndex = 1;
             this.button_add_fourni.Text = "ajouter";
             this.button_add_fourni.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,10 +225,10 @@
             this.button_achats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_achats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_achats.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.button_achats.Location = new System.Drawing.Point(0, 484);
+            this.button_achats.Location = new System.Drawing.Point(0, 394);
             this.button_achats.Name = "button_achats";
             this.button_achats.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_achats.Size = new System.Drawing.Size(183, 45);
+            this.button_achats.Size = new System.Drawing.Size(200, 45);
             this.button_achats.TabIndex = 4;
             this.button_achats.Text = "Achats";
             this.button_achats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,7 +247,7 @@
             this.button_list_articles.Location = new System.Drawing.Point(0, 0);
             this.button_list_articles.Name = "button_list_articles";
             this.button_list_articles.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_list_articles.Size = new System.Drawing.Size(183, 45);
+            this.button_list_articles.Size = new System.Drawing.Size(200, 45);
             this.button_list_articles.TabIndex = 0;
             this.button_list_articles.Text = "list";
             this.button_list_articles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,12 +265,13 @@
             this.button_credits.Location = new System.Drawing.Point(0, 45);
             this.button_credits.Name = "button_credits";
             this.button_credits.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_credits.Size = new System.Drawing.Size(183, 45);
+            this.button_credits.Size = new System.Drawing.Size(200, 45);
             this.button_credits.TabIndex = 4;
-            this.button_credits.Text = "Check";
+            this.button_credits.Text = "Chick";
             this.button_credits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_credits.UseMnemonic = false;
             this.button_credits.UseVisualStyleBackColor = true;
+            this.button_credits.Click += new System.EventHandler(this.button_credits_Click);
             // 
             // button_list_achat
             // 
@@ -283,7 +284,7 @@
             this.button_list_achat.Location = new System.Drawing.Point(0, 0);
             this.button_list_achat.Name = "button_list_achat";
             this.button_list_achat.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_list_achat.Size = new System.Drawing.Size(183, 45);
+            this.button_list_achat.Size = new System.Drawing.Size(200, 45);
             this.button_list_achat.TabIndex = 0;
             this.button_list_achat.Text = "list";
             this.button_list_achat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,44 +292,22 @@
             this.button_list_achat.UseVisualStyleBackColor = false;
             this.button_list_achat.Click += new System.EventHandler(this.button_list_achat_Click);
             // 
-            // button_admin
-            // 
-            this.button_admin.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button_admin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_admin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_admin.FlatAppearance.BorderSize = 0;
-            this.button_admin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.button_admin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
-            this.button_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_admin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.button_admin.Location = new System.Drawing.Point(0, 619);
-            this.button_admin.Name = "button_admin";
-            this.button_admin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_admin.Size = new System.Drawing.Size(183, 45);
-            this.button_admin.TabIndex = 6;
-            this.button_admin.Text = "Admin";
-            this.button_admin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_admin.UseMnemonic = false;
-            this.button_admin.UseVisualStyleBackColor = false;
-            this.button_admin.Click += new System.EventHandler(this.button_admin_Click);
-            // 
             // panel_submenu_achat
             // 
             this.panel_submenu_achat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
+            this.panel_submenu_achat.Controls.Add(this.button1);
             this.panel_submenu_achat.Controls.Add(this.button_credits);
             this.panel_submenu_achat.Controls.Add(this.button_list_achat);
             this.panel_submenu_achat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_achat.Location = new System.Drawing.Point(0, 529);
+            this.panel_submenu_achat.Location = new System.Drawing.Point(0, 439);
             this.panel_submenu_achat.Name = "panel_submenu_achat";
-            this.panel_submenu_achat.Size = new System.Drawing.Size(183, 90);
+            this.panel_submenu_achat.Size = new System.Drawing.Size(200, 135);
             this.panel_submenu_achat.TabIndex = 5;
             // 
             // panel_Menu
             // 
             this.panel_Menu.AutoScroll = true;
             this.panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.panel_Menu.Controls.Add(this.button_admin);
             this.panel_Menu.Controls.Add(this.panel_submenu_achat);
             this.panel_Menu.Controls.Add(this.button_achats);
             this.panel_Menu.Controls.Add(this.panel_submenu_articles);
@@ -349,7 +328,7 @@
             this.panel_submenu_articles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_submenu_articles.Location = new System.Drawing.Point(0, 349);
             this.panel_submenu_articles.Name = "panel_submenu_articles";
-            this.panel_submenu_articles.Size = new System.Drawing.Size(183, 135);
+            this.panel_submenu_articles.Size = new System.Drawing.Size(200, 45);
             this.panel_submenu_articles.TabIndex = 3;
             // 
             // panel_container
@@ -361,6 +340,23 @@
             this.panel_container.Size = new System.Drawing.Size(800, 580);
             this.panel_container.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 90);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(200, 45);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Bon";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseMnemonic = false;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,6 +367,7 @@
             this.Controls.Add(this.panel_Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.icon_close)).EndInit();
@@ -398,7 +395,6 @@
         private System.Windows.Forms.Button button_list_articles;
         private System.Windows.Forms.Button button_credits;
         private System.Windows.Forms.Button button_list_achat;
-        private System.Windows.Forms.Button button_admin;
         private System.Windows.Forms.Panel panel_submenu_achat;
         private System.Windows.Forms.Panel panel_Menu;
         private System.Windows.Forms.Panel panel_submenu_articles;
@@ -406,5 +402,6 @@
         private System.Windows.Forms.Button button_add_fourni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_details_fournis;
+        private System.Windows.Forms.Button button1;
     }
 }

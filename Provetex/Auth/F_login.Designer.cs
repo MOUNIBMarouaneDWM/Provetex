@@ -230,6 +230,7 @@
             this.Controls.Add(this.Textbox_User);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_login";
             this.Load += new System.EventHandler(this.F_Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picture_hide)).EndInit();

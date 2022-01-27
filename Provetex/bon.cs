@@ -12,23 +12,24 @@ namespace Provetex
     using System;
     using System.Collections.Generic;
     
-    public partial class supplier
+    public partial class bon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public supplier()
+        public bon()
         {
-            this.suppliers_items = new HashSet<suppliers_items>();
+            this.chiques = new HashSet<chique>();
         }
     
-        public int C_id_supplier { get; set; }
-        public string C_name_supplier { get; set; }
-        public string C_phone_supplier { get; set; }
-        public string C_adress_supplier { get; set; }
-        public string C_email_supplier { get; set; }
+        public int C_serie_bon { get; set; }
+        public Nullable<int> C_purchase { get; set; }
+        public Nullable<int> C_numero_bon { get; set; }
+        public string C_payement_type { get; set; }
+        public Nullable<decimal> C_prix_bon { get; set; }
         public Nullable<System.DateTime> created_at { get; set; }
         public Nullable<System.DateTime> updated_at { get; set; }
     
+        public virtual purchase purchase { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<suppliers_items> suppliers_items { get; set; }
+        public virtual ICollection<chique> chiques { get; set; }
     }
 }

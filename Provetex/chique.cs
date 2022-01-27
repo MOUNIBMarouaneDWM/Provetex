@@ -12,12 +12,13 @@ namespace Provetex
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class chique
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int C_numero_chique { get; set; }
+        public Nullable<int> C_bon { get; set; }
+        public Nullable<decimal> C_prix_chique { get; set; }
+        public Nullable<System.DateTime> C_date_chique { get; set; }
+    
+        public virtual bon bon { get; set; }
     }
 }

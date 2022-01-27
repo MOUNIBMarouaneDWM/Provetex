@@ -135,5 +135,10 @@ namespace Provetex
             Form form = new Purchase.F_RD();
             Panelaffiche(form);
         }
+
+        private void button_credits_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This form is not ready for now !");
+        }
     }
 }

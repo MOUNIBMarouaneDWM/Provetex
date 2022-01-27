@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_RD));
             this.DataGrid_list = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.detail = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Textbox_searsh = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Textbox_searsh = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,19 +48,19 @@
             // 
             // DataGrid_list
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGrid_list.BackgroundColor = System.Drawing.Color.White;
             this.DataGrid_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGrid_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGrid_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGrid_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGrid_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.delete,
@@ -73,6 +75,7 @@
             this.DataGrid_list.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGrid_list.Size = new System.Drawing.Size(776, 388);
             this.DataGrid_list.TabIndex = 6;
+            this.DataGrid_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_list_CellContentClick);
             // 
             // delete
             // 
@@ -92,6 +95,54 @@
             this.detail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.detail.Width = 32;
             // 
+            // Textbox_searsh
+            // 
+            this.Textbox_searsh.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Textbox_searsh.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.Textbox_searsh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Textbox_searsh.HintForeColor = System.Drawing.Color.Empty;
+            this.Textbox_searsh.HintText = "Rechercher ...";
+            this.Textbox_searsh.isPassword = false;
+            this.Textbox_searsh.LineFocusedColor = System.Drawing.Color.Blue;
+            this.Textbox_searsh.LineIdleColor = System.Drawing.Color.Gray;
+            this.Textbox_searsh.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.Textbox_searsh.LineThickness = 3;
+            this.Textbox_searsh.Location = new System.Drawing.Point(541, 142);
+            this.Textbox_searsh.Margin = new System.Windows.Forms.Padding(4);
+            this.Textbox_searsh.Name = "Textbox_searsh";
+            this.Textbox_searsh.Size = new System.Drawing.Size(211, 33);
+            this.Textbox_searsh.TabIndex = 8;
+            this.Textbox_searsh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_searsh.OnValueChanged += new System.EventHandler(this.Textbox_searsh_OnValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sunshine", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 43);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Achat";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 32;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn2.Width = 32;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -102,7 +153,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // Button_add
             // 
@@ -149,35 +200,6 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // Textbox_searsh
-            // 
-            this.Textbox_searsh.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Textbox_searsh.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.Textbox_searsh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Textbox_searsh.HintForeColor = System.Drawing.Color.Empty;
-            this.Textbox_searsh.HintText = "Rechercher ...";
-            this.Textbox_searsh.isPassword = false;
-            this.Textbox_searsh.LineFocusedColor = System.Drawing.Color.Blue;
-            this.Textbox_searsh.LineIdleColor = System.Drawing.Color.Gray;
-            this.Textbox_searsh.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.Textbox_searsh.LineThickness = 3;
-            this.Textbox_searsh.Location = new System.Drawing.Point(541, 142);
-            this.Textbox_searsh.Margin = new System.Windows.Forms.Padding(4);
-            this.Textbox_searsh.Name = "Textbox_searsh";
-            this.Textbox_searsh.Size = new System.Drawing.Size(211, 33);
-            this.Textbox_searsh.TabIndex = 8;
-            this.Textbox_searsh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sunshine", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 43);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Achat";
-            // 
             // F_RD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +234,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn detail;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

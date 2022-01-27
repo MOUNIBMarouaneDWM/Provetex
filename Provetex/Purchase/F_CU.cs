@@ -19,12 +19,11 @@ namespace Provetex.Purchase
         /// <methods>
         private int id_sup, id_item;
         decimal total;
-        private void custumaz()
+        private void Custumaz()
         {
             int? id_sup_item = Program.id_sup_item;
             int? id_article = Program.id_item_purchase;
             int? id_suplier = Program.id_suplier_purchase;
-
 
             if (!Program.pannier)
             {
@@ -38,19 +37,18 @@ namespace Provetex.Purchase
             }
             else
             {
-
                 comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
-                                                                                        from item
-                                                                                        where item._id_item in (select _item
-                                                                                        from suppliers_items
-                where _item=" + id_article + ")");
+                                                                       from item
+                                                                       where item._id_item in (select _item
+                                                                       from suppliers_items
+                                                                       where _item=" + id_article + ")");
                 comboBox_item.ValueMember = "_id_item";
                 comboBox_item.DisplayMember = "_name_item";
                 comboBox_sup.DataSource = Program.ExecuterSelection(@"select _id_supplier,_name_supplier
-from supplier
-where supplier._id_supplier in(select _supplier
-from suppliers_items
-where _supplier=" + id_suplier + ")");
+                                                                    from supplier
+                                                                    where supplier._id_supplier in(select _supplier
+                                                                    from suppliers_items
+                                                                    where _supplier=" + id_suplier + ")");
                 comboBox_sup.ValueMember = "_id_supplier";
                 comboBox_sup.DisplayMember = "_name_supplier";
                 comboBox_item.Enabled = false;
@@ -58,14 +56,48 @@ where _supplier=" + id_suplier + ")");
             }
 
         }
+
+        private void Create()
+        {
+            comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
+                                                                        from item
+                                                                        where item._id_item in (select _item
+                                                                        from suppliers_items)");
+            comboBox_item.ValueMember = "_id_item";
+            comboBox_item.DisplayMember = "_name_item";
+            comboBox_item.Enabled = true;
+        }
+        private void CreateFromPannier(int id_supplier, int id_item)
+        {
+            comboBox_item.DataSource = Program.ExecuterSelection(@"select _id_item,_name_item
+                                                                       from item
+                                                                       where item._id_item in (select _item
+                                                                       from suppliers_items
+                                                                       where _item=" + id_item + ")");
+            comboBox_item.ValueMember = "_id_item";
+            comboBox_item.DisplayMember = "_name_item";
+            comboBox_sup.DataSource = Program.ExecuterSelection(@"select _id_supplier,_name_supplier
+                                                                    from supplier
+                                                                    where supplier._id_supplier in(select _supplier
+                                                                    from suppliers_items
+                                                                    where _supplier=" + id_sup + ")");
+            comboBox_sup.ValueMember = "_id_supplier";
+            comboBox_sup.DisplayMember = "_name_supplier";
+            comboBox_item.Enabled = false;
+            comboBox_sup.Enabled = false;
+        } 
+        private void UpdateMode(int id_purchase)
+        {
+
+        }
         /// </methods>
 
         private void F_CU_Load(object sender, EventArgs e)
         {
-            custumaz();
+            radioButton_chique.Checked = true;
         }
 
-        private void comboBox_item_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_item_SelectedIndexChanged(object sender, EventArgs e)
         {
            
             try
@@ -86,21 +118,6 @@ where _supplier=" + id_suplier + ")");
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                Textbox_pricePaid.Text = "";
-                Textbox_pricePaid.Enabled = false;
-            }
-            else
-            {
-                Textbox_pricePaid.Text = "";
-                Textbox_pricePaid.Enabled = true;
-
-            }
-        }
-
         private void Button_back_Click(object sender, EventArgs e)
         {
             Program.pannier = false;
@@ -109,7 +126,7 @@ where _supplier=" + id_suplier + ")");
             this.Close();
         }
 
-        private void num_qtt_ValueChanged(object sender, EventArgs e)
+        private void Num_qtt_ValueChanged(object sender, EventArgs e)
         {
             id_item = int.Parse(comboBox_item.SelectedValue.ToString());
             id_sup = int.Parse(comboBox_sup.SelectedValue.ToString());
@@ -119,45 +136,81 @@ where _supplier=" + id_suplier + ")");
             var sup_item = Program.provetex.suppliers_items.Find(id_sup_item.FirstOrDefault());
             total = int.Parse(num_qtt.Value.ToString()) * sup_item.C_price;
 
-            label_totale.Text = "" + total;
+            //label_totale.Text = "" + total;
         }
 
 
 
-        private void Button_save_Click(object sender, EventArgs e)
+        private void CheckBox_tva_CheckedChanged(object sender, EventArgs e)
         {
-            id_item =int.Parse(comboBox_item.SelectedValue.ToString());
-            id_sup = int.Parse(comboBox_sup.SelectedValue.ToString());
-            IQueryable<int> id_sup_item = from i in Program.provetex.suppliers_items
-                                          where i.C_item == id_item && i.C_supplier == id_sup
-                                          select i.C_id_suppliers_items;
-            var sup_item = Program.provetex.suppliers_items.Find(id_sup_item.FirstOrDefault());
-            decimal rest;
-            decimal paid;
-            decimal prix_item=sup_item.C_price;
-             total = int.Parse(num_qtt.Value.ToString()) * prix_item;
-            if (checkBox1.Checked == false)
+            if (checkBox_tva.Checked)
+                panel_tva.Visible = true;
+            else
+                panel_tva.Visible = false;
+        }
+
+        private void RadioButton_chique_CheckedChanged(object sender, EventArgs e)
+        {
+            Point point = new Point(60, 85);
+            if (radioButton_chique.Checked)
             {
-                paid = int.Parse(Textbox_pricePaid.Text);
-                rest = total - paid;
+                panel_payement_espece.Visible = false;
+                panel_payement_chique.Visible = true;
             }
             else
             {
-                paid = total;
-                rest = 0;
+               panel_payement_espece.Visible = true;
+                panel_payement_chique.Visible = true;
             }
-            purchase purchase = new purchase {
-                C_suppliers_items = id_sup_item.FirstOrDefault(),
-                C_quantity = int.Parse(num_qtt.Value.ToString()),
-                C_paid = paid,
-                C_rest = rest,
-                created_at = DateTime.Now,
-                update_at = DateTime.Now
-            };
-            Program.provetex.purchases.Add(purchase);
-            Program.provetex.SaveChanges();
-            MessageBox.Show("achat ajouter avec succe");
+            
+        }
 
+
+        private void Button_save_Click(object sender, EventArgs e)
+        {
+            if (Program.FirstPurchase)
+            {
+
+            }
+            //id_item =int.Parse(comboBox_item.SelectedValue.ToString());
+            //id_sup = int.Parse(comboBox_sup.SelectedValue.ToString());
+            //IQueryable<int> id_sup_item = from i in Program.provetex.suppliers_items
+            //                              where i.C_item == id_item && i.C_supplier == id_sup
+            //                              select i.C_id_suppliers_items;
+            //var sup_item = Program.provetex.suppliers_items.Find(id_sup_item.FirstOrDefault());
+            //decimal rest;
+            //decimal paid;
+            //decimal prix_item=sup_item.C_price;
+            // total = int.Parse(num_qtt.Value.ToString()) * prix_item;
+            //if (checkBox_tva.Checked == false)
+            //{
+            //    //paid = int.Parse(Textbox_pricePaid.Text);
+            //    //rest = total - paid;
+            //}
+            //else
+            //{
+            //    paid = total;
+            //    rest = 0;
+            //}
+            //try
+            //{
+            //purchase purchase = new purchase {
+            //    C_suppliers_items = id_sup_item.FirstOrDefault(),
+            //    C_quantity = int.Parse(num_qtt.Value.ToString()),
+            //    C_paid = paid,
+            //    C_rest = rest,
+            //    created_at = DateTime.Now,
+            //    update_at = DateTime.Now
+            //};
+            //Program.provetex.purchases.Add(purchase);
+            //Program.provetex.SaveChanges();
+            //MessageBox.Show("achat ajouter avec succe");
+            //this.Close();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Please enter an avalible iformation(s)");
+            //}
         }
     }
 }

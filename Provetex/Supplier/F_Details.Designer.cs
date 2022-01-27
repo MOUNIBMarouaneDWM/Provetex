@@ -40,6 +40,7 @@
             this.pictureBox_back = new System.Windows.Forms.PictureBox();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel_form = new System.Windows.Forms.Panel();
+            this.Dropdown_unite = new Bunifu.Framework.UI.BunifuDropdown();
             this.Dropdown_list_article = new System.Windows.Forms.ComboBox();
             this.panel_choise = new System.Windows.Forms.Panel();
             this.radioButton_new = new System.Windows.Forms.RadioButton();
@@ -149,7 +150,7 @@
             this.pictureBox_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_back.TabIndex = 13;
             this.pictureBox_back.TabStop = false;
-            this.pictureBox_back.Click += new System.EventHandler(this.pictureBox_back_Click);
+            this.pictureBox_back.Click += new System.EventHandler(this.PictureBox_back_Click);
             // 
             // Button_add
             // 
@@ -189,6 +190,7 @@
             // panel_form
             // 
             this.panel_form.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_form.Controls.Add(this.Dropdown_unite);
             this.panel_form.Controls.Add(this.Dropdown_list_article);
             this.panel_form.Controls.Add(this.panel_choise);
             this.panel_form.Controls.Add(this.Button_back);
@@ -199,6 +201,24 @@
             this.panel_form.Name = "panel_form";
             this.panel_form.Size = new System.Drawing.Size(331, 347);
             this.panel_form.TabIndex = 15;
+            // 
+            // Dropdown_unite
+            // 
+            this.Dropdown_unite.BackColor = System.Drawing.Color.Transparent;
+            this.Dropdown_unite.BorderRadius = 3;
+            this.Dropdown_unite.DisabledColor = System.Drawing.Color.Gray;
+            this.Dropdown_unite.ForeColor = System.Drawing.Color.White;
+            this.Dropdown_unite.Items = new string[] {
+        "m^2",
+        "Kg",
+        "Unite"};
+            this.Dropdown_unite.Location = new System.Drawing.Point(36, 168);
+            this.Dropdown_unite.Name = "Dropdown_unite";
+            this.Dropdown_unite.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.Dropdown_unite.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.Dropdown_unite.selectedIndex = 0;
+            this.Dropdown_unite.Size = new System.Drawing.Size(67, 20);
+            this.Dropdown_unite.TabIndex = 47;
             // 
             // Dropdown_list_article
             // 
@@ -229,7 +249,7 @@
             this.radioButton_new.TabStop = true;
             this.radioButton_new.Text = "New articles";
             this.radioButton_new.UseVisualStyleBackColor = true;
-            this.radioButton_new.CheckedChanged += new System.EventHandler(this.radioButton_new_CheckedChanged);
+            this.radioButton_new.CheckedChanged += new System.EventHandler(this.RadioButton_new_CheckedChanged);
             // 
             // radioButton_notNew
             // 
@@ -241,7 +261,7 @@
             this.radioButton_notNew.TabStop = true;
             this.radioButton_notNew.Text = "Article alredy exict";
             this.radioButton_notNew.UseVisualStyleBackColor = true;
-            this.radioButton_notNew.CheckedChanged += new System.EventHandler(this.radioButton_notNew_CheckedChanged);
+            this.radioButton_notNew.CheckedChanged += new System.EventHandler(this.RadioButton_notNew_CheckedChanged);
             // 
             // Button_back
             // 
@@ -307,7 +327,7 @@
             this.Textbox_prix.LineIdleColor = System.Drawing.Color.Gray;
             this.Textbox_prix.LineMouseHoverColor = System.Drawing.Color.Gray;
             this.Textbox_prix.LineThickness = 3;
-            this.Textbox_prix.Location = new System.Drawing.Point(36, 157);
+            this.Textbox_prix.Location = new System.Drawing.Point(36, 212);
             this.Textbox_prix.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_prix.Name = "Textbox_prix";
             this.Textbox_prix.Size = new System.Drawing.Size(181, 33);
@@ -381,5 +401,6 @@
         private System.Windows.Forms.RadioButton radioButton_new;
         private System.Windows.Forms.Panel panel_choise;
         private System.Windows.Forms.ComboBox Dropdown_list_article;
+        private Bunifu.Framework.UI.BunifuDropdown Dropdown_unite;
     }
 }
