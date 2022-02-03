@@ -37,24 +37,20 @@
             this.button_articles = new System.Windows.Forms.Button();
             this.panel_submenu_fourni = new System.Windows.Forms.Panel();
             this.button_details_fournis = new System.Windows.Forms.Button();
-            this.button_add_fourni = new System.Windows.Forms.Button();
             this.panel_bar = new System.Windows.Forms.Panel();
             this.button_achats = new System.Windows.Forms.Button();
-            this.button_list_articles = new System.Windows.Forms.Button();
             this.button_credits = new System.Windows.Forms.Button();
             this.button_list_achat = new System.Windows.Forms.Button();
             this.panel_submenu_achat = new System.Windows.Forms.Panel();
-            this.panel_Menu = new System.Windows.Forms.Panel();
-            this.panel_submenu_articles = new System.Windows.Forms.Panel();
-            this.panel_container = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel_Menu = new System.Windows.Forms.Panel();
+            this.panel_container = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.icon_close)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel_submenu_fourni.SuspendLayout();
             this.panel_bar.SuspendLayout();
             this.panel_submenu_achat.SuspendLayout();
             this.panel_Menu.SuspendLayout();
-            this.panel_submenu_articles.SuspendLayout();
             this.SuspendLayout();
             // 
             // icon_close
@@ -142,7 +138,7 @@
             this.button_articles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_articles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_articles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.button_articles.Location = new System.Drawing.Point(0, 304);
+            this.button_articles.Location = new System.Drawing.Point(0, 259);
             this.button_articles.Name = "button_articles";
             this.button_articles.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button_articles.Size = new System.Drawing.Size(200, 45);
@@ -157,12 +153,11 @@
             // 
             this.panel_submenu_fourni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
             this.panel_submenu_fourni.Controls.Add(this.button_details_fournis);
-            this.panel_submenu_fourni.Controls.Add(this.button_add_fourni);
             this.panel_submenu_fourni.Controls.Add(this.button_list_fourni);
             this.panel_submenu_fourni.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_submenu_fourni.Location = new System.Drawing.Point(0, 169);
             this.panel_submenu_fourni.Name = "panel_submenu_fourni";
-            this.panel_submenu_fourni.Size = new System.Drawing.Size(200, 135);
+            this.panel_submenu_fourni.Size = new System.Drawing.Size(200, 90);
             this.panel_submenu_fourni.TabIndex = 1;
             // 
             // button_details_fournis
@@ -173,7 +168,7 @@
             this.button_details_fournis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_details_fournis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_details_fournis.ForeColor = System.Drawing.Color.White;
-            this.button_details_fournis.Location = new System.Drawing.Point(0, 90);
+            this.button_details_fournis.Location = new System.Drawing.Point(0, 45);
             this.button_details_fournis.Name = "button_details_fournis";
             this.button_details_fournis.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.button_details_fournis.Size = new System.Drawing.Size(200, 45);
@@ -183,25 +178,6 @@
             this.button_details_fournis.UseMnemonic = false;
             this.button_details_fournis.UseVisualStyleBackColor = false;
             this.button_details_fournis.Click += new System.EventHandler(this.button_details_fournis_Click);
-            // 
-            // button_add_fourni
-            // 
-            this.button_add_fourni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
-            this.button_add_fourni.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_add_fourni.FlatAppearance.BorderSize = 0;
-            this.button_add_fourni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_add_fourni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add_fourni.ForeColor = System.Drawing.Color.White;
-            this.button_add_fourni.Location = new System.Drawing.Point(0, 45);
-            this.button_add_fourni.Name = "button_add_fourni";
-            this.button_add_fourni.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_add_fourni.Size = new System.Drawing.Size(200, 45);
-            this.button_add_fourni.TabIndex = 1;
-            this.button_add_fourni.Text = "ajouter";
-            this.button_add_fourni.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_add_fourni.UseMnemonic = false;
-            this.button_add_fourni.UseVisualStyleBackColor = false;
-            this.button_add_fourni.Click += new System.EventHandler(this.button_add_fourni_Click);
             // 
             // panel_bar
             // 
@@ -225,7 +201,7 @@
             this.button_achats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_achats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_achats.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.button_achats.Location = new System.Drawing.Point(0, 394);
+            this.button_achats.Location = new System.Drawing.Point(0, 304);
             this.button_achats.Name = "button_achats";
             this.button_achats.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button_achats.Size = new System.Drawing.Size(200, 45);
@@ -235,25 +211,6 @@
             this.button_achats.UseMnemonic = false;
             this.button_achats.UseVisualStyleBackColor = false;
             this.button_achats.Click += new System.EventHandler(this.button_achats_Click);
-            // 
-            // button_list_articles
-            // 
-            this.button_list_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button_list_articles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_list_articles.FlatAppearance.BorderSize = 0;
-            this.button_list_articles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_list_articles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_list_articles.ForeColor = System.Drawing.Color.White;
-            this.button_list_articles.Location = new System.Drawing.Point(0, 0);
-            this.button_list_articles.Name = "button_list_articles";
-            this.button_list_articles.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.button_list_articles.Size = new System.Drawing.Size(200, 45);
-            this.button_list_articles.TabIndex = 0;
-            this.button_list_articles.Text = "list";
-            this.button_list_articles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_list_articles.UseMnemonic = false;
-            this.button_list_articles.UseVisualStyleBackColor = false;
-            this.button_list_articles.Click += new System.EventHandler(this.button_list_articles_Click);
             // 
             // button_credits
             // 
@@ -299,46 +256,10 @@
             this.panel_submenu_achat.Controls.Add(this.button_credits);
             this.panel_submenu_achat.Controls.Add(this.button_list_achat);
             this.panel_submenu_achat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_achat.Location = new System.Drawing.Point(0, 439);
+            this.panel_submenu_achat.Location = new System.Drawing.Point(0, 349);
             this.panel_submenu_achat.Name = "panel_submenu_achat";
             this.panel_submenu_achat.Size = new System.Drawing.Size(200, 135);
             this.panel_submenu_achat.TabIndex = 5;
-            // 
-            // panel_Menu
-            // 
-            this.panel_Menu.AutoScroll = true;
-            this.panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
-            this.panel_Menu.Controls.Add(this.panel_submenu_achat);
-            this.panel_Menu.Controls.Add(this.button_achats);
-            this.panel_Menu.Controls.Add(this.panel_submenu_articles);
-            this.panel_Menu.Controls.Add(this.button_articles);
-            this.panel_Menu.Controls.Add(this.panel_submenu_fourni);
-            this.panel_Menu.Controls.Add(this.button_Fournisseur);
-            this.panel_Menu.Controls.Add(this.panel1);
-            this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel_Menu.Location = new System.Drawing.Point(0, 0);
-            this.panel_Menu.Name = "panel_Menu";
-            this.panel_Menu.Size = new System.Drawing.Size(200, 600);
-            this.panel_Menu.TabIndex = 3;
-            // 
-            // panel_submenu_articles
-            // 
-            this.panel_submenu_articles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(33)))));
-            this.panel_submenu_articles.Controls.Add(this.button_list_articles);
-            this.panel_submenu_articles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_submenu_articles.Location = new System.Drawing.Point(0, 349);
-            this.panel_submenu_articles.Name = "panel_submenu_articles";
-            this.panel_submenu_articles.Size = new System.Drawing.Size(200, 45);
-            this.panel_submenu_articles.TabIndex = 3;
-            // 
-            // panel_container
-            // 
-            this.panel_container.BackColor = System.Drawing.Color.White;
-            this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_container.Location = new System.Drawing.Point(200, 20);
-            this.panel_container.Name = "panel_container";
-            this.panel_container.Size = new System.Drawing.Size(800, 580);
-            this.panel_container.TabIndex = 6;
             // 
             // button1
             // 
@@ -356,6 +277,32 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel_Menu
+            // 
+            this.panel_Menu.AutoScroll = true;
+            this.panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
+            this.panel_Menu.Controls.Add(this.panel_submenu_achat);
+            this.panel_Menu.Controls.Add(this.button_achats);
+            this.panel_Menu.Controls.Add(this.button_articles);
+            this.panel_Menu.Controls.Add(this.panel_submenu_fourni);
+            this.panel_Menu.Controls.Add(this.button_Fournisseur);
+            this.panel_Menu.Controls.Add(this.panel1);
+            this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel_Menu.Location = new System.Drawing.Point(0, 0);
+            this.panel_Menu.Name = "panel_Menu";
+            this.panel_Menu.Size = new System.Drawing.Size(200, 600);
+            this.panel_Menu.TabIndex = 3;
+            // 
+            // panel_container
+            // 
+            this.panel_container.BackColor = System.Drawing.Color.White;
+            this.panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_container.Location = new System.Drawing.Point(200, 20);
+            this.panel_container.Name = "panel_container";
+            this.panel_container.Size = new System.Drawing.Size(800, 580);
+            this.panel_container.TabIndex = 6;
+            this.panel_container.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_container_Paint);
             // 
             // Dashboard
             // 
@@ -377,7 +324,6 @@
             this.panel_bar.ResumeLayout(false);
             this.panel_submenu_achat.ResumeLayout(false);
             this.panel_Menu.ResumeLayout(false);
-            this.panel_submenu_articles.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -392,14 +338,11 @@
         private System.Windows.Forms.Panel panel_submenu_fourni;
         private System.Windows.Forms.Panel panel_bar;
         private System.Windows.Forms.Button button_achats;
-        private System.Windows.Forms.Button button_list_articles;
         private System.Windows.Forms.Button button_credits;
         private System.Windows.Forms.Button button_list_achat;
         private System.Windows.Forms.Panel panel_submenu_achat;
         private System.Windows.Forms.Panel panel_Menu;
-        private System.Windows.Forms.Panel panel_submenu_articles;
         private System.Windows.Forms.Panel panel_container;
-        private System.Windows.Forms.Button button_add_fourni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_details_fournis;
         private System.Windows.Forms.Button button1;

@@ -24,14 +24,15 @@ namespace Provetex.Purchase
                                         on purchase.C_suppliers_items equals supplier_item.C_id_suppliers_items
                                         select new
                                         {
-                                            ID = purchase.C_id_purchase,
+                                            ID = purchase.C_id_purchase,                                          
                                             FOURNISSEUR = supplier_item.supplier.C_name_supplier,
                                             ARTICLE = supplier_item.item.C_name_item,
                                             PRIX = supplier_item.C_price,
                                             QTT = purchase.C_quantity,
                                             TOTAL = purchase.C_quantity * supplier_item.C_price,
                                             PAID = purchase.C_paid,
-                                            REST = purchase.C_rest
+                                            REST = purchase.C_rest,
+                                            DATE= purchase.created_at
                                         }).ToList();
             DataGrid_list.Columns["ID"].Visible = false;
         }
@@ -60,22 +61,35 @@ namespace Provetex.Purchase
         {
             int index = e.RowIndex;
             int id = (int)DataGrid_list.Rows[index].Cells["ID"].Value;
-            if (e.ColumnIndex == 0)
+            decimal rest = (decimal)DataGrid_list.Rows[index].Cells["REST"].Value;
+            if (e.ColumnIndex == 0)//delet
             {
                 DialogResult result = MessageBox.Show("Etes-vous sure?", "Confirmation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-
                     var purchase = Program.provetex.purchases.Find(id);
                     Program.provetex.purchases.Remove(purchase);
                     Program.provetex.SaveChanges();
                     List_purchas();
-
                 }
             }
-            else if (e.ColumnIndex == 1)
+            else if (e.ColumnIndex == 1)//add bon
             {
-                MessageBox.Show("the update not ready yet !");
+                if (rest != 0)
+                {
+                    Program.AddBon = true;
+                    Program.id_achat = id;
+                    Form form = new Purchase.F_CU();
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("cant add bon");
+                }
+            }
+            else
+            {
+
             }
         }
 
@@ -99,7 +113,8 @@ namespace Provetex.Purchase
                                                 QTT = purchase.C_quantity,
                                                 TOTAL = purchase.C_quantity * supplier_item.C_price,
                                                 PAID = purchase.C_paid,
-                                                REST = purchase.C_rest
+                                                REST = purchase.C_rest,
+                                                DATE=purchase.created_at
                                             }).ToList();
             }
         }

@@ -65,6 +65,24 @@ namespace Provetex.Auth
             form.Show();
             this.Hide();
         }
+
+        private void Textbox_answer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Textbox_newPass_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Textbox_confirme_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

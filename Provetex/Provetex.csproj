@@ -48,6 +48,10 @@
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\..\Documents\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.TeamFoundation.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.170.0\lib\netstandard2.0\Microsoft.TeamFoundation.Common.dll</HintPath>
     </Reference>
@@ -323,6 +327,8 @@
       <DependentUpon>provetex.edmx</DependentUpon>
       <LastGenOutput>provetex.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8_add_dollar_16.png" />
+    <None Include="Resources\icons8_view_details_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

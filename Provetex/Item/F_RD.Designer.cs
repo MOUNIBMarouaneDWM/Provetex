@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_RD));
             this.DataGrid_list = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.update = new System.Windows.Forms.DataGridViewImageColumn();
             this.shop = new System.Windows.Forms.DataGridViewImageColumn();
             this.Btn_refresh = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,7 +41,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Button_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel_form = new System.Windows.Forms.Panel();
+            this.panel_info_supItem = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label_unity = new System.Windows.Forms.Label();
+            this.label_articl = new System.Windows.Forms.Label();
+            this.label_sup = new System.Windows.Forms.Label();
             this.comboBox_sup = new System.Windows.Forms.ComboBox();
+            this.comboBox_unite = new Bunifu.Framework.UI.BunifuDropdown();
             this.Dropdown_list_article = new System.Windows.Forms.ComboBox();
             this.panel_choise = new System.Windows.Forms.Panel();
             this.radioButton_new = new System.Windows.Forms.RadioButton();
@@ -49,11 +58,11 @@
             this.Button_save = new Bunifu.Framework.UI.BunifuThinButton2();
             this.Textbox_prix = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.Textbox_artcle = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.comboBox_unite = new Bunifu.Framework.UI.BunifuDropdown();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_form.SuspendLayout();
+            this.panel_info_supItem.SuspendLayout();
             this.panel_choise.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +70,7 @@
             // 
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DataGrid_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGrid_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGrid_list.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.DataGrid_list.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGrid_list.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -75,6 +85,7 @@
             this.DataGrid_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.delete,
+            this.update,
             this.shop});
             this.DataGrid_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DataGrid_list.DoubleBuffered = true;
@@ -90,25 +101,34 @@
             // 
             // delete
             // 
+            this.delete.FillWeight = 48.73096F;
             this.delete.HeaderText = "";
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
             this.delete.Name = "delete";
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 32;
+            // 
+            // update
+            // 
+            this.update.FillWeight = 53.28913F;
+            this.update.HeaderText = "";
+            this.update.Image = global::Provetex.Properties.Resources.icons8_view_details_16;
+            this.update.Name = "update";
+            this.update.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.update.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // shop
             // 
+            this.shop.FillWeight = 197.9799F;
             this.shop.HeaderText = "";
             this.shop.Image = global::Provetex.Properties.Resources.icons8_shopping_cart_16;
             this.shop.Name = "shop";
-            this.shop.Width = 32;
             // 
             // Btn_refresh
             // 
             this.Btn_refresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("Btn_refresh.Image")));
-            this.Btn_refresh.Location = new System.Drawing.Point(234, 142);
+            this.Btn_refresh.Location = new System.Drawing.Point(421, 142);
             this.Btn_refresh.Name = "Btn_refresh";
             this.Btn_refresh.Size = new System.Drawing.Size(33, 33);
             this.Btn_refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -119,7 +139,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(202, 146);
+            this.pictureBox1.Location = new System.Drawing.Point(389, 146);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -138,7 +158,7 @@
             this.Textbox_searsh.LineIdleColor = System.Drawing.Color.Gray;
             this.Textbox_searsh.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.Textbox_searsh.LineThickness = 3;
-            this.Textbox_searsh.Location = new System.Drawing.Point(16, 142);
+            this.Textbox_searsh.Location = new System.Drawing.Point(203, 142);
             this.Textbox_searsh.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_searsh.Name = "Textbox_searsh";
             this.Textbox_searsh.Size = new System.Drawing.Size(211, 33);
@@ -177,7 +197,7 @@
             this.Button_add.IconVisible = true;
             this.Button_add.IconZoom = 50D;
             this.Button_add.IsTab = false;
-            this.Button_add.Location = new System.Drawing.Point(286, 143);
+            this.Button_add.Location = new System.Drawing.Point(16, 142);
             this.Button_add.Name = "Button_add";
             this.Button_add.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.Button_add.OnHovercolor = System.Drawing.Color.RoyalBlue;
@@ -194,6 +214,7 @@
             // panel_form
             // 
             this.panel_form.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_form.Controls.Add(this.panel_info_supItem);
             this.panel_form.Controls.Add(this.comboBox_sup);
             this.panel_form.Controls.Add(this.comboBox_unite);
             this.panel_form.Controls.Add(this.Dropdown_list_article);
@@ -208,6 +229,74 @@
             this.panel_form.TabIndex = 16;
             this.panel_form.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_form_Paint);
             // 
+            // panel_info_supItem
+            // 
+            this.panel_info_supItem.Controls.Add(this.label2);
+            this.panel_info_supItem.Controls.Add(this.label3);
+            this.panel_info_supItem.Controls.Add(this.label4);
+            this.panel_info_supItem.Controls.Add(this.label_unity);
+            this.panel_info_supItem.Controls.Add(this.label_articl);
+            this.panel_info_supItem.Controls.Add(this.label_sup);
+            this.panel_info_supItem.Location = new System.Drawing.Point(3, 138);
+            this.panel_info_supItem.Name = "panel_info_supItem";
+            this.panel_info_supItem.Size = new System.Drawing.Size(325, 122);
+            this.panel_info_supItem.TabIndex = 17;
+            this.panel_info_supItem.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(256, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Unite";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(138, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Article";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Fournisseur";
+            // 
+            // label_unity
+            // 
+            this.label_unity.AutoSize = true;
+            this.label_unity.Location = new System.Drawing.Point(256, 80);
+            this.label_unity.Name = "label_unity";
+            this.label_unity.Size = new System.Drawing.Size(35, 13);
+            this.label_unity.TabIndex = 2;
+            this.label_unity.Text = "label4";
+            // 
+            // label_articl
+            // 
+            this.label_articl.AutoSize = true;
+            this.label_articl.Location = new System.Drawing.Point(138, 80);
+            this.label_articl.Name = "label_articl";
+            this.label_articl.Size = new System.Drawing.Size(35, 13);
+            this.label_articl.TabIndex = 1;
+            this.label_articl.Text = "label3";
+            // 
+            // label_sup
+            // 
+            this.label_sup.AutoSize = true;
+            this.label_sup.Location = new System.Drawing.Point(13, 80);
+            this.label_sup.Name = "label_sup";
+            this.label_sup.Size = new System.Drawing.Size(35, 13);
+            this.label_sup.TabIndex = 0;
+            this.label_sup.Text = "label2";
+            // 
             // comboBox_sup
             // 
             this.comboBox_sup.BackColor = System.Drawing.Color.RoyalBlue;
@@ -217,6 +306,24 @@
             this.comboBox_sup.Name = "comboBox_sup";
             this.comboBox_sup.Size = new System.Drawing.Size(259, 21);
             this.comboBox_sup.TabIndex = 40;
+            // 
+            // comboBox_unite
+            // 
+            this.comboBox_unite.BackColor = System.Drawing.Color.Transparent;
+            this.comboBox_unite.BorderRadius = 3;
+            this.comboBox_unite.DisabledColor = System.Drawing.Color.Gray;
+            this.comboBox_unite.ForeColor = System.Drawing.Color.White;
+            this.comboBox_unite.Items = new string[] {
+        "Kg",
+        "M^2",
+        "Unity"};
+            this.comboBox_unite.Location = new System.Drawing.Point(224, 174);
+            this.comboBox_unite.Name = "comboBox_unite";
+            this.comboBox_unite.NomalColor = System.Drawing.Color.RoyalBlue;
+            this.comboBox_unite.onHoverColor = System.Drawing.Color.RoyalBlue;
+            this.comboBox_unite.selectedIndex = 0;
+            this.comboBox_unite.Size = new System.Drawing.Size(68, 21);
+            this.comboBox_unite.TabIndex = 17;
             // 
             // Dropdown_list_article
             // 
@@ -325,12 +432,13 @@
             this.Textbox_prix.LineIdleColor = System.Drawing.Color.Gray;
             this.Textbox_prix.LineMouseHoverColor = System.Drawing.Color.Gray;
             this.Textbox_prix.LineThickness = 3;
-            this.Textbox_prix.Location = new System.Drawing.Point(36, 257);
+            this.Textbox_prix.Location = new System.Drawing.Point(36, 261);
             this.Textbox_prix.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_prix.Name = "Textbox_prix";
             this.Textbox_prix.Size = new System.Drawing.Size(181, 33);
             this.Textbox_prix.TabIndex = 33;
             this.Textbox_prix.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_prix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_prix_KeyPress);
             // 
             // Textbox_artcle
             // 
@@ -351,24 +459,7 @@
             this.Textbox_artcle.TabIndex = 32;
             this.Textbox_artcle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Textbox_artcle.Visible = false;
-            // 
-            // comboBox_unite
-            // 
-            this.comboBox_unite.BackColor = System.Drawing.Color.Transparent;
-            this.comboBox_unite.BorderRadius = 3;
-            this.comboBox_unite.DisabledColor = System.Drawing.Color.Gray;
-            this.comboBox_unite.ForeColor = System.Drawing.Color.White;
-            this.comboBox_unite.Items = new string[] {
-        "Kg",
-        "M^2",
-        "Unity"};
-            this.comboBox_unite.Location = new System.Drawing.Point(224, 174);
-            this.comboBox_unite.Name = "comboBox_unite";
-            this.comboBox_unite.NomalColor = System.Drawing.Color.RoyalBlue;
-            this.comboBox_unite.onHoverColor = System.Drawing.Color.RoyalBlue;
-            this.comboBox_unite.selectedIndex = 0;
-            this.comboBox_unite.Size = new System.Drawing.Size(68, 21);
-            this.comboBox_unite.TabIndex = 17;
+            this.Textbox_artcle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_artcle_KeyPress);
             // 
             // F_RD
             // 
@@ -391,6 +482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_form.ResumeLayout(false);
+            this.panel_info_supItem.ResumeLayout(false);
+            this.panel_info_supItem.PerformLayout();
             this.panel_choise.ResumeLayout(false);
             this.panel_choise.PerformLayout();
             this.ResumeLayout(false);
@@ -416,8 +509,16 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_prix;
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_artcle;
         private System.Windows.Forms.ComboBox comboBox_sup;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
-        private System.Windows.Forms.DataGridViewImageColumn shop;
         private Bunifu.Framework.UI.BunifuDropdown comboBox_unite;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewImageColumn update;
+        private System.Windows.Forms.DataGridViewImageColumn shop;
+        private System.Windows.Forms.Panel panel_info_supItem;
+        private System.Windows.Forms.Label label_unity;
+        private System.Windows.Forms.Label label_articl;
+        private System.Windows.Forms.Label label_sup;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

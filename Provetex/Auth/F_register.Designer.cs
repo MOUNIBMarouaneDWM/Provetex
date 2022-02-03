@@ -108,6 +108,7 @@
             this.Textbox_answer.Size = new System.Drawing.Size(359, 33);
             this.Textbox_answer.TabIndex = 7;
             this.Textbox_answer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_answer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_answer_KeyPress);
             // 
             // icon_close
             // 
@@ -299,6 +300,7 @@
             this.Textbox_User.Size = new System.Drawing.Size(188, 33);
             this.Textbox_User.TabIndex = 33;
             this.Textbox_User.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_User.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_User_KeyPress);
             // 
             // Textbox_Name
             // 
@@ -319,6 +321,7 @@
             this.Textbox_Name.Size = new System.Drawing.Size(188, 33);
             this.Textbox_Name.TabIndex = 32;
             this.Textbox_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_Name_KeyPress);
             // 
             // label1
             // 

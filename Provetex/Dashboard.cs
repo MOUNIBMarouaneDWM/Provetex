@@ -27,15 +27,13 @@ namespace Provetex
         private void Costumize()
         {
             panel_submenu_fourni.Visible = false;
-            panel_submenu_articles.Visible = false;
             panel_submenu_achat.Visible = false;
         }
         private void HideSubmenu()
         {
             if (panel_submenu_fourni.Visible)
                 panel_submenu_fourni.Visible = false;
-            if (panel_submenu_articles.Visible)
-                panel_submenu_articles.Visible = false;
+
             if (panel_submenu_achat.Visible)
                 panel_submenu_achat.Visible = false;
         }
@@ -82,17 +80,13 @@ namespace Provetex
 
         private void button_articles_Click(object sender, EventArgs e)
         {
-            ShowSubmenu(panel_submenu_articles);
+            Form form = new Item.F_RD();
+            Panelaffiche(form);
         }
 
         private void button_achats_Click(object sender, EventArgs e)
         {
             ShowSubmenu(panel_submenu_achat);
-        }
-
-        private void button_admin_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button_add_fourni_Click(object sender, EventArgs e)
@@ -103,7 +97,6 @@ namespace Provetex
                 form.TopMost = true;
                 form.Show();
             }
-
         }
 
         private void button_list_fourni_Click(object sender, EventArgs e)
@@ -113,10 +106,7 @@ namespace Provetex
             Panelaffiche(form);
         }
 
-        private void icon_close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void icon_close_Click(object sender, EventArgs e) => Application.Exit();
 
         private void button_details_fournis_Click(object sender, EventArgs e)
         {
@@ -139,6 +129,11 @@ namespace Provetex
         private void button_credits_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This form is not ready for now !");
+        }
+
+        private void Panel_container_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

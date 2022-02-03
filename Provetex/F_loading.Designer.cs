@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "F_loading";
             this.Text = "F_loading";
+            this.Load += new System.EventHandler(this.F_loading_Load);
             this.ResumeLayout(false);
 
         }

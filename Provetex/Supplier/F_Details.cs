@@ -38,6 +38,8 @@ namespace Provetex.Supplier
                                         ).ToList();
             DataGrid_list.Columns["detail"].Visible = true;
             DataGrid_list.Columns["delet"].Visible = false;
+            DataGrid_list.Columns["ID"].Visible = false;
+
             firstDetail = true;
 
         }
@@ -51,8 +53,10 @@ namespace Provetex.Supplier
                                             ID = sup_items.C_id_suppliers_items,
                                             ID_ARTICLE = sup_items.C_item,
                                             ARTICLE = sup_items.item.C_name_item,
-                                            PRICE = sup_items.C_price
+                                            PRICE = sup_items.C_price,
+                                            UNITE = sup_items.C_unite
                                         }).ToList();
+            DataGrid_list.Columns["ID_ARTICLE"].Visible = false;
         }
 
         private void Form_load()
@@ -61,6 +65,7 @@ namespace Provetex.Supplier
             radioButton_notNew.Checked = true;
             Dropdown_list_article.Visible = true;
             Textbox_artcle.Visible = false;
+            Textbox_prix.Text = "";
         }
 
         private void Item_form()
@@ -108,7 +113,6 @@ namespace Provetex.Supplier
                 int id = (int)DataGrid_list.Rows[index].Cells["ID"].Value;
                 if (e.ColumnIndex == 0)
                 {
-                    MessageBox.Show("" + id);
                     DialogResult result = MessageBox.Show("Etes-vous sure?", "Confirmation", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
@@ -137,6 +141,7 @@ namespace Provetex.Supplier
         {
             ListSuppliers();
             Button_add.Visible = false;
+            panel_form.Visible = false;
         }
 
         private void Textbox_searsh_OnValueChanged(object sender, EventArgs e)
@@ -203,71 +208,82 @@ namespace Provetex.Supplier
 
         private void Button_save_Click(object sender, EventArgs e)
         {
-            string action = Button_save.ButtonText;
-            if (action.ToLower() == "enregistrer")
+            try
             {
-                if (radioButton_new.Checked)
+
+                string action = Button_save.ButtonText;
+                if (action.ToLower() == "enregistrer")
                 {
-                    string item_name = Textbox_artcle.Text;
-                    decimal prix = decimal.Parse(Textbox_prix.Text);
-                    if (item_name != "" && Textbox_prix.Text != "")
+                    if (radioButton_new.Checked)
                     {
-                        //add item in  items
-                        var item = new item
+                        string item_name = Textbox_artcle.Text;
+                        decimal prix = decimal.Parse(Textbox_prix.Text);
+                        if (item_name != "" && Textbox_prix.Text != "")
                         {
-                            C_name_item = item_name
-                        };
-                        Program.provetex.items.Add(item);
-                        Program.provetex.SaveChanges();
-                        //add item in supitem
-                        var id = (from i in Program.provetex.items
-                                  where i.C_name_item == item_name
-                                  select new
-                                  {
-                                      i.C_id_item
-                                  }).Single();
-                      
+                            //add item in  items
+                            var item = new item
+                            {
+                                C_name_item = item_name
+                            };
+                            Program.provetex.items.Add(item);
+                            Program.provetex.SaveChanges();
+                            //add item in supitem
+                            var id = (from i in Program.provetex.items
+                                      where i.C_name_item == item_name
+                                      select new
+                                      {
+                                          i.C_id_item
+                                      }).Single();
+
+                            var item_sup = new suppliers_items
+                            {
+                                C_supplier = id_sup,
+                                C_item = id.C_id_item,
+                                C_price = prix,
+                                C_unite = Dropdown_unite.selectedValue,
+                                created_at = DateTime.Now,
+                                updated_at = DateTime.Now
+                            };
+                            Program.provetex.suppliers_items.Add(item_sup);
+                            Program.provetex.SaveChanges();
+                            MessageBox.Show("seccess");
+                        }
+                        else
+                            MessageBox.Show("remplir les chom");
+                    }
+                    else if (radioButton_notNew.Checked)
+                    {
+                        string item = Dropdown_list_article.SelectedValue.ToString();
+                        int iditem = int.Parse(item);
+                        decimal prix = decimal.Parse(Textbox_prix.Text);
                         var item_sup = new suppliers_items
                         {
                             C_supplier = id_sup,
-                            C_item = id.C_id_item,
+                            C_item = iditem,
                             C_price = prix,
                             created_at = DateTime.Now,
                             updated_at = DateTime.Now
                         };
                         Program.provetex.suppliers_items.Add(item_sup);
                         Program.provetex.SaveChanges();
-                        MessageBox.Show("seccess");
+                        MessageBox.Show("Article ajouter avaec succe ");
                     }
-                    else
-                        MessageBox.Show("remplir les chom");
                 }
-                else if (radioButton_notNew.Checked)
+                else
                 {
-                    string item = Dropdown_list_article.SelectedValue.ToString();
-                    int iditem = int.Parse(item);
-                    decimal prix = decimal.Parse(Textbox_prix.Text);
-                    var item_sup = new suppliers_items
-                    {
-                        C_supplier = id_sup,
-                        C_item = iditem,
-                        C_price = prix,
-                        created_at = DateTime.Now,
-                        updated_at = DateTime.Now
-                    };
-                    Program.provetex.suppliers_items.Add(item_sup);
+                    var item = Program.provetex.suppliers_items.Find(Program.id_sup_item);
+                    item.C_price = decimal.Parse(Textbox_prix.Text);
+                    item.updated_at = DateTime.Now;
                     Program.provetex.SaveChanges();
-                    MessageBox.Show("seccess");
+                    MessageBox.Show("update" + Program.id_sup_item.Value);
                 }
             }
-            else
+            catch (Exception)
             {
-                var item = Program.provetex.suppliers_items.Find(Program.id_sup_item);
-                item.C_price = decimal.Parse(Textbox_prix.Text);
-                item.updated_at = DateTime.Now;
-                Program.provetex.SaveChanges();
-                MessageBox.Show("update" + Program.id_sup_item.Value);
+                MessageBox.Show("Remplir bien le formulaire");
+                
             }
         }
+
     }
 }

@@ -75,7 +75,7 @@
             this.Button_confirme.ActiveLineColor = System.Drawing.Color.RoyalBlue;
             this.Button_confirme.BackColor = System.Drawing.Color.Lavender;
             this.Button_confirme.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button_confirme.BackgroundImage")));
-            this.Button_confirme.ButtonText = "Confirme";
+            this.Button_confirme.ButtonText = "Confirmer";
             this.Button_confirme.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_confirme.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_confirme.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -134,7 +134,7 @@
             this.Textbox_answer.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.Textbox_answer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
             this.Textbox_answer.HintForeColor = System.Drawing.Color.Empty;
-            this.Textbox_answer.HintText = "your answer";
+            this.Textbox_answer.HintText = "Votre Reponse";
             this.Textbox_answer.isPassword = false;
             this.Textbox_answer.LineFocusedColor = System.Drawing.Color.Blue;
             this.Textbox_answer.LineIdleColor = System.Drawing.Color.Gray;
@@ -146,6 +146,7 @@
             this.Textbox_answer.Size = new System.Drawing.Size(166, 33);
             this.Textbox_answer.TabIndex = 10;
             this.Textbox_answer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_answer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_answer_KeyPress);
             // 
             // Card_reset_pass
             // 
@@ -173,18 +174,19 @@
             this.Textbox_newPass.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.Textbox_newPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
             this.Textbox_newPass.HintForeColor = System.Drawing.Color.Empty;
-            this.Textbox_newPass.HintText = "New Password";
+            this.Textbox_newPass.HintText = "nouveau mot de passe";
             this.Textbox_newPass.isPassword = false;
             this.Textbox_newPass.LineFocusedColor = System.Drawing.Color.Blue;
             this.Textbox_newPass.LineIdleColor = System.Drawing.Color.Gray;
             this.Textbox_newPass.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.Textbox_newPass.LineThickness = 3;
-            this.Textbox_newPass.Location = new System.Drawing.Point(63, 64);
+            this.Textbox_newPass.Location = new System.Drawing.Point(52, 64);
             this.Textbox_newPass.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_newPass.Name = "Textbox_newPass";
-            this.Textbox_newPass.Size = new System.Drawing.Size(166, 33);
+            this.Textbox_newPass.Size = new System.Drawing.Size(188, 33);
             this.Textbox_newPass.TabIndex = 14;
             this.Textbox_newPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_newPass.OnValueChanged += new System.EventHandler(this.Textbox_newPass_OnValueChanged);
             // 
             // Button_reset
             // 
@@ -195,7 +197,7 @@
             this.Button_reset.ActiveLineColor = System.Drawing.Color.RoyalBlue;
             this.Button_reset.BackColor = System.Drawing.Color.Lavender;
             this.Button_reset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button_reset.BackgroundImage")));
-            this.Button_reset.ButtonText = "Reset";
+            this.Button_reset.ButtonText = "Réinitialiser";
             this.Button_reset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button_reset.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_reset.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -219,18 +221,20 @@
             this.Textbox_confirme.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.Textbox_confirme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(2)))), ((int)(((byte)(5)))));
             this.Textbox_confirme.HintForeColor = System.Drawing.Color.Empty;
-            this.Textbox_confirme.HintText = "Confirme Password";
+            this.Textbox_confirme.HintText = "Confirmer";
             this.Textbox_confirme.isPassword = false;
             this.Textbox_confirme.LineFocusedColor = System.Drawing.Color.Blue;
             this.Textbox_confirme.LineIdleColor = System.Drawing.Color.Gray;
             this.Textbox_confirme.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.Textbox_confirme.LineThickness = 3;
-            this.Textbox_confirme.Location = new System.Drawing.Point(63, 132);
+            this.Textbox_confirme.Location = new System.Drawing.Point(52, 132);
             this.Textbox_confirme.Margin = new System.Windows.Forms.Padding(4);
             this.Textbox_confirme.Name = "Textbox_confirme";
-            this.Textbox_confirme.Size = new System.Drawing.Size(166, 33);
+            this.Textbox_confirme.Size = new System.Drawing.Size(188, 33);
             this.Textbox_confirme.TabIndex = 10;
+            this.Textbox_confirme.Text = "Confirme le mot de passe";
             this.Textbox_confirme.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_confirme.OnValueChanged += new System.EventHandler(this.Textbox_confirme_OnValueChanged);
             // 
             // pictureBox1
             // 

@@ -63,6 +63,16 @@ namespace Provetex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_dollar_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_dollar_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_refresh_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8_refresh_64", resourceCulture);
@@ -76,6 +86,16 @@ namespace Provetex.Properties {
         internal static System.Drawing.Bitmap icons8_shopping_cart_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8_shopping_cart_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_view_details_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_view_details_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

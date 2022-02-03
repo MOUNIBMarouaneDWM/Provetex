@@ -120,5 +120,6 @@ namespace Provetex.Supplier
 
         private void pictureBox2_Click(object sender, EventArgs e) => Refresh();
 
+
     }
 }

@@ -38,7 +38,7 @@ namespace Provetex.Supplier
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Remplir bien le formulair");
             }
 
         }

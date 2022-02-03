@@ -16,5 +16,10 @@ namespace Provetex
         {
             InitializeComponent();
         }
+
+        private void F_loading_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
