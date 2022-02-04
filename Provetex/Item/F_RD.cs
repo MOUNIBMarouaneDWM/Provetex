@@ -82,7 +82,7 @@ namespace Provetex.Item
                     }
                     catch
                     {
-                        MessageBox.Show("You cant delete this line");
+                        MessageBox.Show("You cant delete this Item");
                     }
                 }
 
@@ -299,6 +299,11 @@ namespace Provetex.Item
             {
                 e.Handled = true;
             }
+        }
+
+        private void Textbox_prix_OnValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

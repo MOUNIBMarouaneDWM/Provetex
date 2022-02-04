@@ -128,12 +128,18 @@ namespace Provetex
 
         private void button_credits_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This form is not ready for now !");
+            Form form = new Purchase.F_Chiques();
+            Panelaffiche(form);
         }
 
         private void Panel_container_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

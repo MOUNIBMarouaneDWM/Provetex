@@ -32,18 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_RD));
             this.DataGrid_list = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.add = new System.Windows.Forms.DataGridViewImageColumn();
+            this.details = new System.Windows.Forms.DataGridViewImageColumn();
             this.Textbox_searsh = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.add = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // DataGrid_list
@@ -64,7 +65,8 @@
             this.DataGrid_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGrid_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.delete,
-            this.add});
+            this.add,
+            this.details});
             this.DataGrid_list.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DataGrid_list.DoubleBuffered = true;
             this.DataGrid_list.EnableHeadersVisualStyles = false;
@@ -76,6 +78,35 @@
             this.DataGrid_list.Size = new System.Drawing.Size(776, 388);
             this.DataGrid_list.TabIndex = 6;
             this.DataGrid_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_list_CellContentClick);
+            // 
+            // delete
+            // 
+            this.delete.Frozen = true;
+            this.delete.HeaderText = "";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.Name = "delete";
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Width = 32;
+            // 
+            // add
+            // 
+            this.add.Frozen = true;
+            this.add.HeaderText = "Bon";
+            this.add.Image = global::Provetex.Properties.Resources.icons8_add_dollar_16;
+            this.add.Name = "add";
+            this.add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.add.Width = 32;
+            // 
+            // details
+            // 
+            this.details.HeaderText = "Info";
+            this.details.Image = global::Provetex.Properties.Resources.icons8_view_details_16;
+            this.details.Name = "details";
+            this.details.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.details.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.details.Width = 50;
             // 
             // Textbox_searsh
             // 
@@ -101,7 +132,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sunshine", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Location = new System.Drawing.Point(57, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 43);
             this.label1.TabIndex = 7;
@@ -146,33 +177,16 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(727, 146);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.Name = "delete";
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 32;
-            // 
-            // add
-            // 
-            this.add.HeaderText = "Bon";
-            this.add.Image = global::Provetex.Properties.Resources.icons8_add_dollar_16;
-            this.add.Name = "add";
-            this.add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.add.Width = 32;
+            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
+            this.pictureBox.Location = new System.Drawing.Point(727, 146);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 9;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // F_RD
             // 
@@ -182,7 +196,7 @@
             this.ClientSize = new System.Drawing.Size(800, 580);
             this.Controls.Add(this.DataGrid_list);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.Textbox_searsh);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -191,7 +205,7 @@
             this.Load += new System.EventHandler(this.F_RD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_list)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +215,7 @@
 
         private Bunifu.Framework.UI.BunifuCustomDataGrid DataGrid_list;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private Bunifu.Framework.UI.BunifuMaterialTextbox Textbox_searsh;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
@@ -209,5 +223,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewImageColumn add;
+        private System.Windows.Forms.DataGridViewImageColumn details;
     }
 }

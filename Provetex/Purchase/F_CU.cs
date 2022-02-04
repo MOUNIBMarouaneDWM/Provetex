@@ -104,7 +104,41 @@ namespace Provetex.Purchase
             }
         }
 
+        private void Textbox_Pchiq_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 46 && Textbox_Pchiq.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (e.KeyChar == 46 && Textbox_Pchiq.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != 46)
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void Textbox_PEsp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 46 && Textbox_PEsp.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (e.KeyChar == 46 && Textbox_PEsp.Text.IndexOf('.') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar != 46)
+            {
+                e.Handled = true;
+            }
+        }
 
         private void Num_qtt_TextChanged(object sender, EventArgs e)
         {
@@ -156,7 +190,7 @@ namespace Provetex.Purchase
                 decimal paid, rest;
                 if (radioButton_chique.Checked)
                 {
-                    paymentType = "chique";
+                    paymentType = "Chèque";
                     paid = decimal.Parse(Textbox_Pchiq.Text);
                     rest = prix_a_paid.Value - paid;
 
@@ -199,7 +233,7 @@ namespace Provetex.Purchase
                 }
                 else
                 {
-                    paymentType = "Especs";
+                    paymentType = "Espèce";
                     paid = decimal.Parse(Textbox_PEsp.Text);
                     rest = prix_a_paid.Value - paid;
                     var purchase = new purchase

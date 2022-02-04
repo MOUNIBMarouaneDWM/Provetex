@@ -36,7 +36,7 @@ namespace Provetex.Supplier
                 MessageBox.Show("added seccese");
                 Textbox_name.Text = Textbox_adrs.Text=Textbox_phone.Text=Textbox_email.Text="";
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Remplir bien le formulair");
             }

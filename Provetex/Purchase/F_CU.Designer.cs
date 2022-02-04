@@ -80,7 +80,7 @@
             this.payement_group.Size = new System.Drawing.Size(467, 251);
             this.payement_group.TabIndex = 44;
             this.payement_group.TabStop = false;
-            this.payement_group.Text = "Payemon";
+            this.payement_group.Text = "Payment";
             // 
             // Textbox_bonSerie
             // 
@@ -131,6 +131,7 @@
             this.Textbox_Pchiq.Size = new System.Drawing.Size(262, 33);
             this.Textbox_Pchiq.TabIndex = 57;
             this.Textbox_Pchiq.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_Pchiq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_Pchiq_KeyPress);
             // 
             // Datepicker_date_chique
             // 
@@ -201,6 +202,7 @@
             this.Textbox_PEsp.Size = new System.Drawing.Size(258, 33);
             this.Textbox_PEsp.TabIndex = 57;
             this.Textbox_PEsp.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Textbox_PEsp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_PEsp_KeyPress);
             // 
             // radioButton_chique
             // 
@@ -208,10 +210,10 @@
             this.radioButton_chique.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_chique.Location = new System.Drawing.Point(119, 17);
             this.radioButton_chique.Name = "radioButton_chique";
-            this.radioButton_chique.Size = new System.Drawing.Size(69, 22);
+            this.radioButton_chique.Size = new System.Drawing.Size(77, 22);
             this.radioButton_chique.TabIndex = 1;
             this.radioButton_chique.TabStop = true;
-            this.radioButton_chique.Text = "chique";
+            this.radioButton_chique.Text = "Chèque";
             this.radioButton_chique.UseVisualStyleBackColor = true;
             this.radioButton_chique.CheckedChanged += new System.EventHandler(this.RadioButton_chique_CheckedChanged);
             // 
@@ -224,7 +226,7 @@
             this.radioButton_espece.Size = new System.Drawing.Size(76, 22);
             this.radioButton_espece.TabIndex = 0;
             this.radioButton_espece.TabStop = true;
-            this.radioButton_espece.Text = "Espece";
+            this.radioButton_espece.Text = "Espèce";
             this.radioButton_espece.UseVisualStyleBackColor = true;
             // 
             // Button_back
@@ -324,7 +326,8 @@
             // 
             this.label_sup.AutoSize = true;
             this.label_sup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_sup.Location = new System.Drawing.Point(279, 50);
+            this.label_sup.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label_sup.Location = new System.Drawing.Point(282, 50);
             this.label_sup.Name = "label_sup";
             this.label_sup.Size = new System.Drawing.Size(82, 18);
             this.label_sup.TabIndex = 75;
@@ -334,7 +337,8 @@
             // 
             this.label_item.AutoSize = true;
             this.label_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_item.Location = new System.Drawing.Point(52, 50);
+            this.label_item.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label_item.Location = new System.Drawing.Point(58, 50);
             this.label_item.Name = "label_item";
             this.label_item.Size = new System.Drawing.Size(44, 18);
             this.label_item.TabIndex = 74;
@@ -443,22 +447,22 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(52, 12);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 18);
+            this.label6.Size = new System.Drawing.Size(56, 23);
             this.label6.TabIndex = 66;
-            this.label6.Text = "artice";
+            this.label6.Text = "Artice";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(279, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 18);
+            this.label5.Size = new System.Drawing.Size(102, 23);
             this.label5.TabIndex = 65;
-            this.label5.Text = "fournisseur";
+            this.label5.Text = "Fournisseur";
             // 
             // F_CU
             // 

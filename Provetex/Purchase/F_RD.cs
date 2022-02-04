@@ -19,6 +19,11 @@ namespace Provetex.Purchase
         /// <Methods>
         private void List_purchas()
         {
+            DataGrid_list.Columns["details"].Visible = true;
+            DataGrid_list.Columns["add"].Visible = true;
+            DataGrid_list.Columns["delete"].Visible = true;
+            pictureBox.Visible = true;
+            Textbox_searsh.Visible = true;
             DataGrid_list.DataSource = (from purchase in Program.provetex.purchases
                                         join supplier_item in Program.provetex.suppliers_items
                                         on purchase.C_suppliers_items equals supplier_item.C_id_suppliers_items
@@ -67,10 +72,18 @@ namespace Provetex.Purchase
                 DialogResult result = MessageBox.Show("Etes-vous sure?", "Confirmation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    var purchase = Program.provetex.purchases.Find(id);
-                    Program.provetex.purchases.Remove(purchase);
-                    Program.provetex.SaveChanges();
-                    List_purchas();
+                    try
+                    {
+                        var purchase = Program.provetex.purchases.Find(id);
+                        Program.provetex.purchases.Remove(purchase);
+                        Program.provetex.SaveChanges();
+                        List_purchas();
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("You cant delete this Item");
+                    }
+
                 }
             }
             else if (e.ColumnIndex == 1)//add bon
@@ -86,6 +99,23 @@ namespace Provetex.Purchase
                 {
                     MessageBox.Show("cant add bon");
                 }
+            }
+            else if (e.ColumnIndex == 2)
+            {
+                DataGrid_list.Columns["details"].Visible = false;
+                DataGrid_list.Columns["add"].Visible = false;
+                DataGrid_list.Columns["delete"].Visible = false;
+                pictureBox.Visible = false;
+                Textbox_searsh.Visible = false;
+                DataGrid_list.DataSource = (from i in Program.provetex.bons
+                                            where i.C_purchase == id
+                                            select new {
+                                                SERIE= i.C_serie_bon,
+                                                NUMERO= i.C_numero_bon,
+                                                TYPE_PAYEMENT=i.C_payement_type,
+                                                PRIX =i.C_prix_bon,
+                                                Date=i.created_at
+                                            }).ToList();
             }
             else
             {
@@ -117,6 +147,11 @@ namespace Provetex.Purchase
                                                 DATE=purchase.created_at
                                             }).ToList();
             }
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

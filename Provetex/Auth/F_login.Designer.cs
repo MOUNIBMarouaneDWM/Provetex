@@ -199,7 +199,6 @@
             this.Textbox_User.TabIndex = 15;
             this.Textbox_User.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Textbox_User.OnValueChanged += new System.EventHandler(this.Textbox_User_OnValueChanged);
-            this.Textbox_User.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Textbox_User_KeyPress);
             // 
             // label1
             // 

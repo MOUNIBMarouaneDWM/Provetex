@@ -90,12 +90,6 @@ namespace Provetex.Auth
                 Button_login.Visible = false;
         }
 
-        private void Textbox_User_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetter(e.KeyChar)  && !char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
+
     }
 }
