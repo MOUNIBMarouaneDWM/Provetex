@@ -16,6 +16,15 @@ namespace Provetex.Purchase
         {
             InitializeComponent();
         }
+        private string state(DateTime date,DateTime sysdate)
+        {
+            string state = "";
+            if (sysdate < date)
+                state = "Not VALIDE";
+            else
+                state = "VALIDE";
+            return state;
+        }
         private void Actualiser()
         {
             DataGrid_list.DataSource = (from i in Program.provetex.chiques
@@ -24,7 +33,8 @@ namespace Provetex.Purchase
                                             NUMERO = i.C_numero_chique,
                                             FOURNISSEUR = i.bon.purchase.suppliers_items.supplier.C_name_supplier,
                                             PRIX = i.C_prix_chique,
-                                            DATE = i.C_date_chique
+                                            DATE = i.C_date_chique,
+                                            STATE = state(i.C_date_chique.Value,DateTime.Today)
                                         }).ToList();
         }
         private void F_Chiques_Load(object sender, EventArgs e)
@@ -49,33 +59,51 @@ namespace Provetex.Purchase
             string text = Textbox_searsh.Text;
             if (radioButton_num.Checked)
             {
-                
-                DataGrid_list.DataSource = (from i in Program.provetex.chiques
-                                            where i.C_numero_chique== int.Parse(text)
-                                            select new
-                                            {
-                                                NUMERO = i.C_numero_chique,
-                                                FOURNISSEUR = i.bon.purchase.suppliers_items.supplier.C_name_supplier,
-                                                PRIX = i.C_prix_chique,
-                                                DATE = i.C_date_chique
-                                            }).ToList();
+                if (text != "")
+                {
+                    try
+                    {
+
+                    int num = int.Parse(text);
+                    DataGrid_list.DataSource = (from i in Program.provetex.chiques
+                                                where i.C_numero_chique.Equals(num)
+                                                select new
+                                                {
+                                                    NUMERO = i.C_numero_chique,
+                                                    FOURNISSEUR = i.bon.purchase.suppliers_items.supplier.C_name_supplier,
+                                                    PRIX = i.C_prix_chique,
+                                                    DATE = i.C_date_chique,
+                                                    STATE = state(i.C_date_chique.Value, DateTime.Today)
+                                                }).ToList();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("this number is very long");
+                        Textbox_searsh.Text = "";
+                    }
+                }
+                else
+                    Actualiser();
             }
-            else if(radioButton_sup.Checked)
+            else if (radioButton_sup.Checked)
             {
-                DataGrid_list.DataSource = (from i in Program.provetex.chiques
-                                            where i.bon.purchase.suppliers_items.supplier.C_name_supplier == text
-                                            select new
-                                            {
-                                                NUMERO = i.C_numero_chique,
-                                                FOURNISSEUR = i.bon.purchase.suppliers_items.supplier.C_name_supplier,
-                                                PRIX = i.C_prix_chique,
-                                                DATE = i.C_date_chique
-                                            }).ToList();
+                if (text != "")
+                {
+                    DataGrid_list.DataSource = (from i in Program.provetex.chiques
+                                                where i.bon.purchase.suppliers_items.supplier.C_name_supplier.Contains(text)
+                                                select new
+                                                {
+                                                    NUMERO = i.C_numero_chique,
+                                                    FOURNISSEUR = i.bon.purchase.suppliers_items.supplier.C_name_supplier,
+                                                    PRIX = i.C_prix_chique,
+                                                    DATE = i.C_date_chique,
+                                                    STATE = state(i.C_date_chique.Value, DateTime.Today)
+                                                }).ToList();
+                }
+                else
+                    Actualiser();
             }
-            else
-            {
-                Actualiser();
-            }
+
         }
 
         private void Textbox_searsh_KeyPress(object sender, KeyPressEventArgs e)
